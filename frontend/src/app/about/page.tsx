@@ -103,7 +103,7 @@ const AboutPage = () => {
       scrollTrigger: {
         trigger: "#hobbies",
         start: "top 100%",
-        end: "bottom top",
+        end: "bottom 80%",
         scrub: 1,
       },
     });
@@ -115,7 +115,7 @@ const AboutPage = () => {
       scrollTrigger: {
         trigger: "#motto",
         start: "top 120%",
-        end: "bottom top",
+        end: "bottom 80%",
         scrub: 1,
       },
     });

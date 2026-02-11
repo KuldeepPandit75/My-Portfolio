@@ -48,6 +48,12 @@ const LazyHackathons = lazy(() =>
   })),
 );
 
+const LazyMotto = lazy(() =>
+  import("@/src/components/Motto/Motto").then((module) => ({
+    default: module.default,
+  })),
+);
+
 export default function Home() {
   const { tertialColor } = useThemeStore();
   const { loadingComplete, animationStarted } = useStore();
@@ -86,6 +92,9 @@ export default function Home() {
         </div>
         <Suspense fallback={<div />}>
           <LazyHackathons />
+        </Suspense>
+        <Suspense fallback={<div />}>
+          <LazyMotto />
         </Suspense>
       </div>
     </>

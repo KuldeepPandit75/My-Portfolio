@@ -22,7 +22,7 @@ const HUD = () => {
     if(pathname !== "/"){
       setSound(false);
     }
-  },[pathname])
+  },[])
 
   useEffect(() => {
     const audio = new Audio("/bgMusic2.mp3");
