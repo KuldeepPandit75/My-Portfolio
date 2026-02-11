@@ -5,7 +5,7 @@ import { useThemeStore } from "../Zustand_Store/ThemeStore";
 import { useStore } from "../Zustand_Store/Store";
 import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
 import StartButton from "../components/StartButton/StartButton";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const LazyHero = lazy(() =>
   import("@/src/components/Hero/Hero").then((module) => ({
