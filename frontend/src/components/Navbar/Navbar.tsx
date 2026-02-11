@@ -185,6 +185,7 @@ const Navbar = () => {
               color: secondaryColor,
               fontWeight: 300,
             }}
+            prefetch
           >
             About
           </Link>
