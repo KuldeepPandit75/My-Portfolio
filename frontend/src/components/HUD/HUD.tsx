@@ -1,0 +1,218 @@
+"use client";
+
+import { useThemeStore } from "@/src/Zustand_Store/ThemeStore";
+import { useStore } from "@/src/Zustand_Store/Store";
+import { useRef, useState, useEffect } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const HUD = () => {
+  const { primaryColor, secondaryColor, tertialColor} = useThemeStore();
+  const { audioElement, setAudioElement } = useStore();
+  const { heroAnimationComplete } = useStore();
+  const [sound, setSound] = useState(true);
+  const soundOffRef = useRef<HTMLSpanElement>(null);
+  const soundOnRef = useRef<HTMLSpanElement>(null);
+  const soundLabelRef = useRef<HTMLSpanElement>(null);
+  const pathname = usePathname();
+
+  useEffect(()=>{
+    if(pathname !== "/"){
+      setSound(false);
+    }
+  },[pathname])
+
+  useEffect(() => {
+    const audio = new Audio("/bgMusic2.mp3");
+    audio.loop = true;
+    audio.volume=0.08;
+    setAudioElement(audio);
+  }, []);
+
+  // Animate sound toggle when state changes
+  useEffect(() => {
+    if (sound) {
+      audioElement?.play();
+      // Animate OFF out and ON in
+      gsap.to(soundOffRef.current, {
+        y: "-100%",
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+      gsap.to(soundOnRef.current, {
+        y: "0%",
+        opacity: 1,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+    } else {
+      audioElement?.pause();
+      // Animate ON out and OFF in
+      gsap.to(soundOffRef.current, {
+        y: "0%",
+        opacity: 1,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+      gsap.to(soundOnRef.current, {
+        y: "100%",
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+    }
+  }, [sound]);
+
+  // Add hover effects for social icons and sound label
+  useGSAP(() => {
+    // Only run animations after hero animation has completed
+    if (!heroAnimationComplete) return;
+
+    const tl = gsap.timeline();
+
+    tl.to(
+      "#hud1",
+      {
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+      },
+      "+=0.4",
+    );
+
+    tl.to(
+      "#hud2",
+      {
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+      },
+      "<",
+    );
+
+    const socialIcons = document.querySelectorAll(".social-icon");
+    socialIcons.forEach((icon) => {
+      icon.addEventListener("mouseenter", () => {
+        gsap.to(icon, {
+          scale: 1.1,
+          duration: 0.1,
+          ease: "power2.out",
+        });
+      });
+      icon.addEventListener("mouseleave", () => {
+        gsap.to(icon, {
+          scale: 1,
+          duration: 0.1,
+          ease: "power2.out",
+        });
+      });
+    });
+
+    // Sound label hover
+    const soundLabel = soundLabelRef.current;
+    if (soundLabel) {
+      soundLabel.addEventListener("mouseenter", () => {
+        gsap.to(soundLabel, {
+          opacity: 1,
+          duration: 0.1,
+          ease: "power2.out",
+        });
+      });
+      soundLabel.addEventListener("mouseleave", () => {
+        gsap.to(soundLabel, {
+          opacity: 0.5,
+          duration: 0.1,
+          ease: "power2.out",
+        });
+      });
+    }
+  }, [heroAnimationComplete]);
+
+  return (
+    <div>
+      {/* <audio ref={audioRef} loop className="hidden">
+        <source src="/bgMusic.mp3" type="audio/mpeg" />
+      </audio> */}
+      <div
+        id="hud1"
+        className="flex justify-between items-end fixed bottom-14 left-0 right-0 mx-[80px] pointer-events-none mix-blend-difference z-100 opacity-0"
+      >
+        <div className="items-center gap-[40px] flex flex-col pointer-events-auto">
+          <Link href="https://github.com/kuldeeppandit75" target="_blank" className="social-icon cursor-pointer">
+          <img
+            src="/icons/github.svg"
+            alt="github"
+            width={25}
+            
+          />
+          </Link>
+          <Link href="https://www.instagram.com/vaultechi/" target="_blank" className="social-icon cursor-pointer">
+          <img
+            src="/icons/insta.svg"
+            alt="instagram"
+            width={20}
+            
+          />
+          </Link>
+          <Link href="https://www.youtube.com/@kuldeepk.pandit/shorts" target="_blank" className="social-icon cursor-pointer">
+          <img
+            src="/icons/youtube.svg"
+            alt="youtube"
+            width={15}
+            
+          />
+          </Link>
+          <Link href="https://www.linkedin.com/in/kuldeepk-pandit/" target="_blank" className="social-icon cursor-pointer">
+          <img
+            src="/icons/in.svg"
+            alt="linkedin"
+            width={20}
+            
+          />
+          </Link>
+        </div>
+      </div>
+      <div
+        id="hud2"
+        className="fixed bottom-14 right-0 mx-[80px] z-100 opacity-0"
+        style={{ mixBlendMode: "difference" }}
+      >
+        <div className="-rotate-90" style={{ color: secondaryColor }}>
+          <p
+            className="font-sugo tracking-[4px] relative left-4 top-10 cursor-pointer select-none"
+            style={{
+              fontSize: "20px",
+            }}
+            onClick={() => {
+              setSound(!sound);
+            }}
+          >
+            <span ref={soundLabelRef} className="opacity-50">
+              SOUND
+            </span>
+            <b className="inline relative" style={{ width: "50px" }}>
+              <span ref={soundOffRef} className="inline-block absolute ml-2">
+                OFF
+              </span>
+              <span
+                ref={soundOnRef}
+                className="inline-block absolute ml-2"
+                style={{
+                  transform: "translateY(100%)",
+                  opacity: 0,
+                }}
+              >
+                ON
+              </span>
+            </b>
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default HUD;

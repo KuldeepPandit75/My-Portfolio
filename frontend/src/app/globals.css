@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+body {
+  background-color: #F0EBE7;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1E1E1E;
+}
+
+@font-face {
+  font-family: "Coolvetica";
+  src: url("/fonts/Coolvetica Rg.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CoolCond";
+  src: url("/fonts/Coolvetica Rg Cond.otf") format("opentype");
+  font-weight: 900;
+  font-style:normal;
+}
+
+@font-face {
+  font-family: "Sugo";
+  src: url("/fonts/Sugo-Pro-Classic-Bold-trial.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sugo";
+  src: url("/fonts/Sugo-Pro-Display-Light-trial.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Samarkan";
+  src: url("/fonts/samarkan.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Baloo";
+  src: url("/fonts/baloo.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@theme {
+  --font-sugo: "Sugo", sans-serif;
+  --font-coolvetica: "Coolvetica", sans-serif;
+  --font-coolcond: "CoolCond", sans-serif;
+  --font-samarkan: "Samarkan", sans-serif;
+  --font-baloo: "Baloo", sans-serif;
+}
+
+.card-container {
+  perspective: 1000px;
+  will-change: width;
+  position: relative;
+}
+
+.card {
+  transform-style: preserve-3d;
+  transform-origin: center;
+  position: relative;
+}
+
+.card-front,
+.card-back {
+  backface-visibility: hidden;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.card-front {
+  position: relative;
+  z-index: 2;
+  width:100%
+}
+
+.card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width:90%;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@layer utilities {
+  .animate-blink {
+    animation: blink 1s step-end infinite;
+  }
+}
+
+@keyframes blink {
+  from,
+  to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
