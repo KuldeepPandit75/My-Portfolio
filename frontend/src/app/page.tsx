@@ -1,10 +1,11 @@
 "use client";
 
-import { lazy, Suspense, useRef } from "react";
+import { lazy, Suspense, useEffect, useRef } from "react";
 import { useThemeStore } from "../Zustand_Store/ThemeStore";
 import { useStore } from "../Zustand_Store/Store";
 import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
 import StartButton from "../components/StartButton/StartButton";
+import { useRouter } from "next/router";
 
 const LazyHero = lazy(() =>
   import("@/src/components/Hero/Hero").then((module) => ({
@@ -57,6 +58,27 @@ const LazyMotto = lazy(() =>
 export default function Home() {
   const { tertialColor } = useThemeStore();
   const { loadingComplete, animationStarted } = useStore();
+
+  const router=useRouter();
+
+  useEffect(() => {
+    router.prefetch("/about")
+  },[])
+
+  useEffect(()=>{
+    const images=[
+      "/images/aboutHead2.svg",
+      "/images/aboutInfo.svg",
+      "/images/jss.png",
+      "/images/community1.svg",
+      "/images/community2.svg",
+      "/images/hobby2.svg"
+    ]
+    images.forEach((image)=>{
+      const img=new Image();
+      img.src=image;
+    })
+  },[])
 
   // Show LoadingScreen first
   if (!loadingComplete) {

@@ -11,7 +11,7 @@ const Motto = () => {
       >
         MY MOTTO
       </h1>
-      <p className="font-coolvetica text-lg sm:text-xl md:text-4xl leading-relaxed w-full text-center mt-[60px]" style={{color: primaryColor}}>
+      <p className="font-coolvetica text-lg sm:text-xl md:text-4xl leading-relaxed w-full text-center mt-[60px]" style={{color: secondaryColor}}>
             “I work until the work speaks for itself.”
           </p>
     </div>
