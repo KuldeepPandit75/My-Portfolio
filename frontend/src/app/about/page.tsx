@@ -142,7 +142,7 @@ const AboutPage = () => {
           </h1>
         </div>
         <Image
-          src="/images/aboutHead2.svg"
+          src="/images/aboutHead2.webp"
           alt="profile"
           id="profileImg"
           width={600}
@@ -163,7 +163,7 @@ const AboutPage = () => {
         <div className="w-[50%] flex justify-end">
           <div className="relative right-[90px] h-[80vh] w-fit">
             <Image
-              src="/images/aboutInfo.svg"
+              src="/images/aboutInfo.webp"
               alt="profile"
               className="h-full w-auto"
               width={500}
@@ -252,7 +252,7 @@ const AboutPage = () => {
         <div className="w-[50%] flex justify-end">
           <div className="relative w-full max-w-[600px] h-[260px] sm:h-[320px] md:h-[360px] overflow-hidden">
             <Image
-              src="/images/jss.png"
+              src="/images/jss.webp"
               alt="JSS Academy of Technical Education, Noida campus"
               fill
               className="object-cover mt-8"
@@ -300,7 +300,7 @@ const AboutPage = () => {
           <div className="flex justify-center">
             <div className="relative w-full max-w-[420px] h-[320px] overflow-hidden rounded-[32px]">
               <Image
-                src="/images/community1.svg"
+                src="/images/community1.webp"
                 alt="Speaking and community events"
                 fill
                 className="object-fill"
@@ -321,7 +321,7 @@ const AboutPage = () => {
           <div className="flex">
             <div className="relative w-full max-w-[520px] h-[280px] sm:h-[320px] overflow-hidden rounded-[32px]">
               <Image
-                src="/images/community2.svg"
+                src="/images/community2.webp"
                 alt="Community group and hackathon moments"
                 fill
                 className="object-cover"
@@ -380,7 +380,7 @@ const AboutPage = () => {
           </div>
           <div className="relative w-full max-w-[460px] h-[280px] sm:h-[320px] overflow-hidden rounded-[32px]">
             <Image
-              src="/images/hobby2.svg"
+              src="/images/hobby.webp"
               alt="Hobbies collage"
               fill
               className="object-fill"
