@@ -153,7 +153,7 @@ const AboutPage = () => {
             background:
               "radial-gradient(60.87% 40.94% at 54.79% 56.77%, rgba(255, 255, 255, 0.00) 0%, #F0EBE7 100%)",
           }}
-          className="absolute top-0 right-0 w-screen h-[80vh]"
+          className="absolute top-0 right-0 w-screen h-[95vh]"
         ></div>
       </div>
       <div
@@ -303,7 +303,7 @@ const AboutPage = () => {
                 src="/images/community1.webp"
                 alt="Speaking and community events"
                 fill
-                className="object-fill"
+                className="object-contain"
               />
               <div
                 className="absolute inset-0 pointer-events-none"
@@ -383,7 +383,7 @@ const AboutPage = () => {
               src="/images/hobby.webp"
               alt="Hobbies collage"
               fill
-              className="object-fill"
+              className="object-contain"
             />
             <div
               className="absolute inset-0 pointer-events-none"
