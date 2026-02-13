@@ -133,12 +133,9 @@ const HUD = () => {
 
   return (
     <div>
-      {/* <audio ref={audioRef} loop className="hidden">
-        <source src="/bgMusic.mp3" type="audio/mpeg" />
-      </audio> */}
       <div
         id="hud1"
-        className="flex justify-between items-end fixed bottom-14 left-0 right-0 mx-[80px] pointer-events-none mix-blend-difference z-100 opacity-0"
+        className="flex justify-between items-end fixed bottom-14 left-0 right-0 mx-[60px] xl:mx-[80px] pointer-events-none mix-blend-difference z-100 opacity-0"
       >
         <div className="items-center gap-[40px] flex flex-col pointer-events-auto">
           <Link href="https://github.com/kuldeeppandit75" target="_blank" className="social-icon cursor-pointer">

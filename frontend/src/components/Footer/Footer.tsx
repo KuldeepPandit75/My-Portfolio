@@ -29,17 +29,17 @@ const Footer = memo(() => {
     <footer
       id="contact"
       ref={footerRef}
-      className="flex flex-col md:flex-row items-stretch opacity-0"
+      className="flex flex-col lg:flex-row items-stretch opacity-0"
       style={{
         backgroundColor: "#111111",
         color: secondaryColor,
       }}
     >
-      <div className="px-6 sm:px-10 md:pl-[250px] md:pr-[120px] py-12 md:py-0 md:h-[50vh] border-b md:border-b-0 md:border-r border-[#8f8f8f30] flex flex-col justify-center relative lg:pt-5">
+      <div className="px-6 sm:px-10 md:px-[150px] lg:pl-[200px] lg:pr-[100px] xl:pl-[250px] xl:pr-[120px] py-12 md:py-0 md:h-[50vh] border-b lg:border-b-0 lg:border-r border-[#8f8f8f30] flex flex-col justify-center relative xl:px-0 xl:pt-5">
         <h3 className="font-coolvetica tracking-[4px] mb-8 md:mb-10 text-sm md:text-base">
           CONNECT
         </h3>
-        <div className="flex flex-col sm:flex-row sm:justify-between gap-8 sm:gap-0 sm:w-[35vw]">
+        <div className="flex flex-col sm:flex-row justify-between gap-8 sm:gap-0 w-full lg:w-[clamp(200px,36vw,550px)]">
           <ul className="flex flex-col gap-5 md:gap-7">
             <li className="flex gap-7">
               <Image
@@ -47,12 +47,12 @@ const Footer = memo(() => {
                 alt="bullet"
                 width={12}
                 height={12}
-                className="h-3 w-3"
+                className="h-[clamp(5px,0.8vw,12px)] w-[clamp(5px,0.8vw,12px)]"
               />
               <Link
                 href="https://www.youtube.com/@kuldeepk.pandit/shorts"
                 target="_blank"
-                className="font-coolvetica text-xl md:text-[2rem] leading-5"
+                className="font-coolvetica text-[clamp(1rem,2.5vw,2rem)] leading-5"
               >
                 YouTube
               </Link>
@@ -63,12 +63,12 @@ const Footer = memo(() => {
                 alt="bullet"
                 width={12}
                 height={12}
-                className="h-3 w-3"
+                className="h-[clamp(5px,0.8vw,12px)] w-[clamp(5px,0.8vw,12px)]"
               />
               <Link
                 href="https://www.instagram.com/vaultechi/"
                 target="_blank"
-                className="font-coolvetica text-xl md:text-[2rem] leading-5"
+                className="font-coolvetica text-[clamp(1rem,2.5vw,2rem)] leading-5"
               >
                 Instagram
               </Link>
@@ -79,12 +79,12 @@ const Footer = memo(() => {
                 alt="bullet"
                 width={12}
                 height={12}
-                className="h-3 w-3"
+                className="h-[clamp(5px,0.8vw,12px)] w-[clamp(5px,0.8vw,12px)]"
               />
               <Link
                 href="https://www.linkedin.com/in/kuldeepk-pandit/"
                 target="_blank"
-                className="font-coolvetica text-xl md:text-[2rem] leading-5"
+                className="font-coolvetica text-[clamp(1rem,2.5vw,2rem)] leading-5"
               >
                 LinkedIn
               </Link>
@@ -97,12 +97,12 @@ const Footer = memo(() => {
                 alt="bullet"
                 width={12}
                 height={12}
-                className="h-3 w-3"
+                className="h-[clamp(5px,0.8vw,12px)] w-[clamp(5px,0.8vw,12px)]"
               />
               <Link
                 href="https://github.com/kuldeeppandit75"
                 target="_blank"
-                className="font-coolvetica text-xl md:text-[2rem] leading-5"
+                className="font-coolvetica text-[clamp(1rem,2.5vw,2rem)] leading-5"
               >
                 GitHub
               </Link>
@@ -117,8 +117,8 @@ const Footer = memo(() => {
           className="hidden sm:block absolute bottom-0 right-0 max-h-[150px] w-auto"
         />
       </div>
-      <div className="flex flex-col w-full px-6 sm:px-10 md:pl-[120px] py-10 md:py-0 gap-5 md:gap-6 justify-center">
-        <div className="font-coolvetica mt-2 md:mt-[80px]">
+      <div className="flex flex-col w-full lg:pl-[clamp(50px,6vw,120px)] py-10 lg:py-0 gap-5 md:gap-6 justify-center lg:px-0 md:px-[150px]">
+        <div className="font-coolvetica mt-2 lg:mt-[60px] xl:mt-[80px]">
           <p className="text-lg md:text-xl">Email</p>
           <Link
             href="https://mail.google.com/mail/?view=cm&fs=1&to=kuldeepk11139@gmail.com"

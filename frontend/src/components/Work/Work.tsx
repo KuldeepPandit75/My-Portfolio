@@ -11,22 +11,26 @@ const Work = () => {
     {
       text: "DEVELOP",
       highlight: false,
-      brief: "Turning ideas into fast, reliable, and production-ready software.",
+      brief:
+        "Turning ideas into fast, reliable, and production-ready software.",
     },
     {
       text: "DATA",
       highlight: false,
-      brief: "Finding meaning in numbers through analysis, structure, and logic.",
+      brief:
+        "Finding meaning in numbers through analysis, structure, and logic.",
     },
     {
       text: "SYSTEM",
       highlight: false,
-      brief: "Engineering foundations that support growth, change, and complexity.",
+      brief:
+        "Engineering foundations that support growth, change, and complexity.",
     },
     {
       text: "CONTENT",
       highlight: false,
-      brief: "I produce educational and experimental content around code, systems, and technology.",
+      brief:
+        "I produce educational and experimental content around code, systems, and technology.",
     },
   ];
 
@@ -74,7 +78,7 @@ const Work = () => {
 
             {/* Dark text layer clipped to overlay */}
             <h2
-              className="absolute top-0 left-0 text-[clamp(2.5rem,7vw,8rem)] font-coolvetica font-black tracking-[4px] leading-tight md:leading-10 px-6 sm:px-10 md:px-[120px] lg:px-[200px] py-6 md:py-8 z-30 pointer-events-none transition-all duration-300 ease-in-out"
+              className="absolute top-0 left-0 h-full flex items-center text-[clamp(2.5rem,7vw,8rem)] font-coolvetica font-black tracking-[4px] leading-tight md:leading-10 px-6 sm:px-10 md:px-[120px] lg:px-[200px] z-30 pointer-events-none transition-all duration-300 ease-in-out"
               style={{
                 color: "#1e1e1e",
                 clipPath:

@@ -41,7 +41,7 @@ const Skills = () => {
     <section className="relative">
       {/* Heading scrolls normally */}
       <h1
-        className="px-[200px] font-coolvetica text-md tracking-[4px] opacity-70 mb-[8vh]"
+        className="lg:px-[200px] md:px-[120px] font-coolvetica text-md tracking-[4px] opacity-70 mb-[8vh]"
         style={{ color: secondaryColor }}
       >
         SKILLS

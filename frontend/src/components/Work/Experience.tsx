@@ -10,116 +10,125 @@ const Experience = memo(() => {
   const experience = useRef<HTMLDivElement>(null);
   const cards = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    // On small screens, the pinned + flip interaction is hard to use.
-    // Keep the layout responsive and only enable the scroll/pin animation on md+.
-    const mm = gsap.matchMedia();
+  useGSAP(
+    () => {
+      // On small screens, the pinned + flip interaction is hard to use.
+      // Keep the layout responsive and only enable the scroll/pin animation on md+.
+      const mm = gsap.matchMedia();
 
-    mm.add("(min-width: 768px)", () => {
-      const tl = gsap.timeline();
-      let hasFlipped = false;
+      mm.add("(min-width: 1024px)", () => {
+        const tl = gsap.timeline();
+        let hasFlipped = false;
 
-      tl.to(
-        ".card-container",
-        {
-          scale: 0.8,
-          ease: "power2.out",
-        },
-        0,
-      );
+        tl.to(
+          ".card-container",
+          {
+            scale: 0.8,
+            ease: "power2.out",
+          },
+          0,
+        );
 
-      tl.to(
-        "#exhead",
-        {
-          opacity: 1,
-          y: -10,
-          ease: "power2.out",
-        },
-        0,
-      );
+        tl.to(
+          "#exhead",
+          {
+            opacity: 1,
+            y: -10,
+            ease: "power2.out",
+          },
+          0,
+        );
 
-      tl.to(
-        ".card-container",
-        {
-          gap: "100px",
-          ease: "power2.out",
-        },
-        ">",
-      );
+        tl.to(
+          ".card-container",
+          {
+            gap: "100px",
+            ease: "power2.out",
+          },
+          ">",
+        );
 
-      tl.to(
-        ".card",
-        {
-          borderRadius: "16px",
-          ease: "power2.out",
-        },
-        "<",
-      );
+        tl.to(
+          ".card",
+          {
+            borderRadius: "16px",
+            ease: "power2.out",
+          },
+          "<",
+        );
 
-      ScrollTrigger.create({
-        trigger: experience.current,
-        start: "top top",
-        end: "+=800",
-        animation: tl,
-        scrub: true,
-        pin: true,
-        // markers:true,
-        onUpdate: (self) => {
-          const progress = self.progress;
+        ScrollTrigger.create({
+          trigger: experience.current,
+          start: "top top",
+          end: "+=800",
+          animation: tl,
+          scrub: true,
+          pin: true,
+          // markers:true,
+          onUpdate: (self) => {
+            const progress = self.progress;
 
-          if (progress >= 0.9 && !hasFlipped) {
-            hasFlipped = true;
-            gsap.to(".card", {
-              rotateY: 180,
-              duration: 0.5,
-              ease: "power2.out",
-            });
-            gsap.to("#card1", {
-              rotateZ: -6,
-              duration: 0.5,
-              ease: "power2.out",
-            });
-            gsap.to("#card2", {
-              rotateZ: 6,
-              duration: 0.5,
-              ease: "power2.out",
-            });
-          } else if (progress < 0.9 && hasFlipped) {
-            // Reset flag if scrolling back
-            hasFlipped = false;
-            gsap.to(".card", {
-              rotateY: 0,
-              duration: 0.5,
-              rotateZ: 0,
-              ease: "power2.out",
-            });
-          }
-        },
+            if (progress >= 0.9 && !hasFlipped) {
+              hasFlipped = true;
+              gsap.to(".card", {
+                rotateY: 180,
+                duration: 0.5,
+                ease: "power2.out",
+              });
+              gsap.to("#card1", {
+                rotateZ: -6,
+                duration: 0.5,
+                ease: "power2.out",
+              });
+              gsap.to("#card2", {
+                rotateZ: 6,
+                duration: 0.5,
+                ease: "power2.out",
+              });
+            } else if (progress < 0.9 && hasFlipped) {
+              // Reset flag if scrolling back
+              hasFlipped = false;
+              gsap.to(".card", {
+                rotateY: 0,
+                duration: 0.5,
+                rotateZ: 0,
+                ease: "power2.out",
+              });
+            }
+          },
+        });
       });
-    });
 
-    return () => mm.revert();
-  }, { scope: experience });
+      return () => mm.revert();
+    },
+    { scope: experience },
+  );
 
   return (
     <section
-      className="py-16 md:py-[150px] px-6 sm:px-10 md:px-[120px] lg:px-[200px]"
+      className="py-16 md:py-[150px] px-6 sm:px-10 md:px-0 lg:px-[200px]"
       ref={experience}
     >
       <h1
+        className="px-6 sm:px-10 md:px-[120px] lg:px-[160px] xl:px-[200px] font-coolvetica text-xs sm:text-sm md:text-md tracking-[4px] opacity-70 mb-[5vh] md:mb-[8vh] lg:hidden"
+        style={{ color: secondaryColor }}
+      >
+        EXPERIENCE
+      </h1>
+      <h1
         id="exhead"
-        className="font-sugo text-xl sm:text-2xl md:text-3xl text-center tracking-[3px] sm:tracking-[4px] opacity-0 -mb-[1vh]"
+        className="font-sugo text-xl sm:text-2xl md:text-3xl text-center tracking-[3px] sm:tracking-[4px] opacity-0 -mb-[1vh] hidden lg:block"
         style={{ color: secondaryColor }}
       >
         EXPERIENCE
       </h1>
       <div
-        className="flex flex-col md:flex-row items-center md:items-stretch justify-center card-container gap-8 md:gap-0"
+        className="flex flex-col md:flex-row items-center lg:items-stretch justify-center card-container gap-8 md:-space-x-[125px] lg:space-x-0  lg:gap-0 xl:scale-100 lg:scale-90"
         ref={cards}
       >
         <div
           id="card1"
-          className="card w-full max-w-[440px] md:max-w-none flex flex-col rounded-[16px] md:rounded-[16px_0_0_16px] rotate-y-0 rotate-z-0"
+          className="relative card w-full lg:max-w-[440px] md:max-w-[400px] md:min-w-[400px] flex flex-col rounded-[16px] md:rounded-[16px] lg:rounded-[16px_0_0_16px] md:rotate-y-180 md:rotate-z-6 lg:rotate-y-0 lg:rotate-z-0 lg:min-w-[440px] md:scale-75 lg:scale-100"
         >
           <div className="card-front h-[360px] sm:h-[420px] md:h-[500px] overflow-hidden">
             <Image
@@ -137,7 +146,7 @@ const Experience = memo(() => {
               background: `linear-gradient(to bottom, ${secondaryColor}, #898784)`,
             }}
           >
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 sm:gap-8 md:gap-10 px-6 md:ml-[20px]">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 sm:gap-8 md:gap-10 px-6 lg:ml-[20px]">
               <Image
                 src="/icons/pv.svg"
                 alt="pv"
@@ -183,7 +192,7 @@ const Experience = memo(() => {
         </div>
         <div
           id="card2"
-          className="card w-full max-w-[440px] md:max-w-none flex flex-col rounded-[16px] md:rounded-[0_16px_16px_0] rotate-y-0 rotate-z-0"
+          className="card w-full md:max-w-[400px] lg:max-w-[440px] md:min-w-[400px] flex flex-col rounded-[16px] md:rounded-[16px] lg:rounded-[0_16px_16px_0] md:rotate-y-180 md:-rotate-z-6 lg:rotate-y-0 lg:rotate-z-0 lg:min-w-[440px] md:scale-75 lg:scale-100"
         >
           <div className="card-front h-[360px] sm:h-[420px] md:h-[500px] overflow-hidden">
             <Image
@@ -192,7 +201,7 @@ const Experience = memo(() => {
               alt="cl"
               width={900}
               height={900}
-              sizes="(max-width: 768px) 90vw, 400px"
+              sizes="(max-width: 1024px) 90vw, 400px"
             />
           </div>
           <div

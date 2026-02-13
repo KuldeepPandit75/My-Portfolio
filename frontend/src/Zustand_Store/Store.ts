@@ -14,11 +14,11 @@ interface StoreState {
 
 export const useStore = create<StoreState>()(
         (set) => ({
-            loadingComplete: false,
+            loadingComplete: true,
             setLoadingComplete: (value: boolean) => set({ loadingComplete: value }),
-            animationStarted: false,
+            animationStarted: true,
             setAnimationStarted: (value: boolean) => set({ animationStarted: value }),
-            heroAnimationComplete: false,
+            heroAnimationComplete: true,
             setHeroAnimationComplete: (value: boolean) => set({ heroAnimationComplete: value }),
             audioElement: null,
             setAudioElement: (value: HTMLAudioElement) => set({ audioElement: value })

@@ -4,7 +4,7 @@ import { useThemeStore } from "@/src/Zustand_Store/ThemeStore";
 const Motto = () => {
   const { primaryColor, secondaryColor } = useThemeStore();
   return (
-    <div className="pb-[80px] md:pb-[100px] relative px-[200px]">
+    <div className="pb-[80px] md:pb-[100px] relative px-[200px] mt-[55px]">
       <h1
         className="font-coolvetica text-xs sm:text-sm md:text-md tracking-[4px] opacity-70"
         style={{ color: secondaryColor }}

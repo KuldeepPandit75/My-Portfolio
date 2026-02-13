@@ -160,11 +160,11 @@ const Navbar = () => {
       <Link
         href="/"
         id="logo"
-        className="fixed top-0 left-0 mt-[3vh] sm:mt-[4vh] lg:mt-[5vh] mx-4 sm:mx-8 lg:mx-[80px] select-none opacity-0"
+        className="fixed top-0 left-0 mt-[3vh] sm:mt-[4vh] lg:mt-[5vh] mx-4 sm:mx-8 md:mx-[60px] xl:mx-[80px] select-none opacity-0"
         style={{ zIndex: 10000 }}
       >
         <h1
-          className="text-[14px] sm:text-[16px] lg:text-[18px] font-sugo font-black rounded-lg px-[14px] sm:px-[18px] lg:px-[20px] py-[4px] tracking-[3px] sm:tracking-[4px]"
+          className="text-[14px] lg:text-[18px] font-sugo font-black rounded-lg px-[14px] sm:px-[18px] lg:px-[20px] py-[4px] tracking-[3px] sm:tracking-[4px]"
           style={{
             backgroundColor: primaryColor,
             color: secondaryColor,
@@ -175,7 +175,7 @@ const Navbar = () => {
       </Link>
 
       {/* Menu Items - With blend mode */}
-      <nav className="fixed top-0 right-0 mt-[3vh] sm:mt-[4vh] lg:mt-[5vh] mx-4 sm:mx-8 lg:mx-[80px] mix-blend-difference select-none z-100">
+      <nav className="fixed top-0 right-0 mt-[3vh] sm:mt-[4vh] lg:mt-[5vh] mx-4 sm:mx-8 md:mx-[60px] xl:mx-[80px] mix-blend-difference select-none z-100">
         <ul className="hidden sm:flex gap-[4vw] items-center" id="nav">
           <Link
             id="about-link"

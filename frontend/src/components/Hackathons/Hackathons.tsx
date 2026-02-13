@@ -40,7 +40,7 @@ const Hackathons = () => {
   return (
     <section className="pb-[80px] md:pb-[100px] relative">
       <h1
-        className="px-6 sm:px-10 md:px-[120px] lg:px-[200px] font-coolvetica text-xs sm:text-sm md:text-md tracking-[4px] opacity-70 mb-[5vh] md:mb-[8vh]"
+        className="px-6 sm:px-10 md:px-[120px] lg:px-[160px] xl:px-[200px] font-coolvetica text-xs sm:text-sm md:text-md tracking-[4px] opacity-70 mb-[5vh] md:mb-[8vh]"
         style={{ color: secondaryColor }}
       >
         HACKATHONS
@@ -50,7 +50,7 @@ const Hackathons = () => {
         {workItems.map((item, index) => (
           <div
             key={index}
-            className="border-t py-6 md:py-8 relative overflow-hidden flex flex-col md:flex-row gap-4 md:gap-0 items-start md:items-center justify-between px-6 sm:px-10 md:px-[120px] lg:px-[200px]"
+            className="border-t py-6 md:py-8 relative overflow-hidden flex flex-col md:flex-row gap-4 md:gap-0 items-start md:items-center justify-between px-6 sm:px-10 md:px-[120px] lg:px-[160px] xl:px-[200px]"
             style={{ borderColor: `${secondaryColor}50` }}
             onMouseEnter={() => mouseEnter(index)}
             onMouseLeave={mouseLeave}
@@ -99,7 +99,7 @@ const Hackathons = () => {
         <Image
           src={imgSrc}
           alt="hackathon"
-          className="hidden sm:block absolute top-[120px] right-[40px] md:right-[120px] lg:right-[200px] h-[260px] w-[220px] md:h-[350px] md:w-[300px] object-cover rounded-2xl z-40"
+          className="hidden sm:block absolute top-[120px] right-[40px] md:right-[120px] lg:right-[180px] xl:right-[200px] h-[260px] w-[220px] lg:h-[250px] lg:w-[200px] xl:h-[300px] xl:w-[250px] object-cover rounded-2xl z-40 pointer-events-none"
           style={{
             // border: `10px solid ${primaryColor}`
           }}
@@ -108,7 +108,7 @@ const Hackathons = () => {
         />
       )}
       <p
-        className="text-[2.2rem] sm:text-[2.6rem] md:text-[3rem] px-6 sm:px-10 md:px-[120px] lg:px-[200px] tracking-[8px] sm:tracking-[10px] md:tracking-[12px] font-baloo mt-10"
+        className=" text-[clamp(2rem,4vw,3rem)] px-6 sm:px-10 md:px-[120px] lg:px-[160px] xl:px-[200px] tracking-[8px] sm:tracking-[10px] md:tracking-[12px] font-baloo"
         style={{
           WebkitTextStroke: `1px ${secondaryColor}`,
           color: secondaryColor,
