@@ -164,13 +164,22 @@ const Navbar = () => {
         style={{ zIndex: 10000 }}
       >
         <h1
-          className="text-[14px] lg:text-[18px] font-sugo font-black rounded-lg px-[14px] sm:px-[18px] lg:px-[20px] py-[4px] tracking-[3px] sm:tracking-[4px]"
+          className="hidden sm:block text-[14px] lg:text-[18px] font-sugo font-black rounded-lg px-[14px] sm:px-[18px] lg:px-[20px] py-[4px] tracking-[3px] sm:tracking-[4px]"
           style={{
             backgroundColor: primaryColor,
             color: secondaryColor,
           }}
         >
           KULDEEP K PANDIT
+        </h1>
+        <h1
+          className="block sm:hidden text-[14px] font-sugo font-black rounded-lg px-[14px] py-[4px] tracking-[3px]"
+          style={{
+            backgroundColor: primaryColor,
+            color: secondaryColor,
+          }}
+        >
+          KULDEEP
         </h1>
       </Link>
 
@@ -215,7 +224,7 @@ const Navbar = () => {
         </ul>
 
         {/* Compact mobile menu */}
-        <div className="sm:hidden flex items-center gap-3 bg-black/70 px-4 py-2 rounded-full">
+        <div className="sm:hidden flex items-center gap-3 bg-black/70 px-0 py-2 rounded-full">
           <span
             className="text-xs font-sugo tracking-[2px] uppercase"
             style={{ color: secondaryColor }}

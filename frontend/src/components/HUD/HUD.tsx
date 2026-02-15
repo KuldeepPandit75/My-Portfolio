@@ -9,7 +9,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const HUD = () => {
-  const { primaryColor, secondaryColor, tertialColor} = useThemeStore();
+  const { primaryColor, secondaryColor, tertialColor } = useThemeStore();
   const { audioElement, setAudioElement } = useStore();
   const { heroAnimationComplete } = useStore();
   const [sound, setSound] = useState(true);
@@ -18,16 +18,16 @@ const HUD = () => {
   const soundLabelRef = useRef<HTMLSpanElement>(null);
   const pathname = usePathname();
 
-  useEffect(()=>{
-    if(pathname !== "/"){
+  useEffect(() => {
+    if (pathname !== "/") {
       setSound(false);
     }
-  },[])
+  }, []);
 
   useEffect(() => {
     const audio = new Audio("/bgMusic2.mp3");
     audio.loop = true;
-    audio.volume=0.08;
+    audio.volume = 0.08;
     setAudioElement(audio);
   }, []);
 
@@ -135,46 +135,42 @@ const HUD = () => {
     <div>
       <div
         id="hud1"
-        className="flex justify-between items-end fixed bottom-14 left-0 right-0 mx-[60px] xl:mx-[80px] pointer-events-none mix-blend-difference z-100 opacity-0"
+        className="hidden sm:flex justify-between items-end fixed bottom-14 left-0 right-0 mx-[60px] xl:mx-[80px] pointer-events-none mix-blend-difference z-100 opacity-0"
       >
         <div className="items-center gap-[40px] flex flex-col pointer-events-auto">
-          <Link href="https://github.com/kuldeeppandit75" target="_blank" className="social-icon cursor-pointer">
-          <img
-            src="/icons/github.svg"
-            alt="github"
-            width={25}
-            
-          />
+          <Link
+            href="https://github.com/kuldeeppandit75"
+            target="_blank"
+            className="social-icon cursor-pointer"
+          >
+            <img src="/icons/github.svg" alt="github" width={25} />
           </Link>
-          <Link href="https://www.instagram.com/vaultechi/" target="_blank" className="social-icon cursor-pointer">
-          <img
-            src="/icons/insta.svg"
-            alt="instagram"
-            width={20}
-            
-          />
+          <Link
+            href="https://www.instagram.com/vaultechi/"
+            target="_blank"
+            className="social-icon cursor-pointer"
+          >
+            <img src="/icons/insta.svg" alt="instagram" width={20} />
           </Link>
-          <Link href="https://www.youtube.com/@kuldeepk.pandit/shorts" target="_blank" className="social-icon cursor-pointer">
-          <img
-            src="/icons/youtube.svg"
-            alt="youtube"
-            width={15}
-            
-          />
+          <Link
+            href="https://www.youtube.com/@kuldeepk.pandit/shorts"
+            target="_blank"
+            className="social-icon cursor-pointer"
+          >
+            <img src="/icons/youtube.svg" alt="youtube" width={15} />
           </Link>
-          <Link href="https://www.linkedin.com/in/kuldeepk-pandit/" target="_blank" className="social-icon cursor-pointer">
-          <img
-            src="/icons/in.svg"
-            alt="linkedin"
-            width={20}
-            
-          />
+          <Link
+            href="https://www.linkedin.com/in/kuldeepk-pandit/"
+            target="_blank"
+            className="social-icon cursor-pointer"
+          >
+            <img src="/icons/in.svg" alt="linkedin" width={20} />
           </Link>
         </div>
       </div>
       <div
         id="hud2"
-        className="fixed bottom-14 right-0 mx-[80px] z-100 opacity-0"
+        className="hidden sm:inline fixed bottom-14 right-0 mx-[80px] z-100 opacity-0"
         style={{ mixBlendMode: "difference" }}
       >
         <div className="-rotate-90" style={{ color: secondaryColor }}>
@@ -207,6 +203,50 @@ const HUD = () => {
             </b>
           </p>
         </div>
+      </div>
+      <div className="sm:hidden fixed bottom-6 right-6 z-100">
+        <button
+          onClick={() => setSound(!sound)}
+          className="w-12 h-12 rounded-full border flex items-center justify-center backdrop-blur-sm transition-all duration-300 shadow-[0_0_15px_rgba(0,0,0,0.3)] hover:shadow-[0_0_20px_rgba(0,0,0,0.5)] active:scale-95"
+          style={{
+            borderColor: secondaryColor,
+            color: secondaryColor,
+            backgroundColor: "rgba(20, 20, 20, 0.4)",
+          }}
+          aria-label="Toggle Sound"
+        >
+          {sound ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z"
+              />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6 4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z"
+              />
+            </svg>
+          )}
+        </button>
       </div>
     </div>
   );

@@ -38,9 +38,9 @@ const Hackathons = () => {
   }
 
   return (
-    <section className="pb-[80px] md:pb-[100px] relative">
+    <section className="pb-[40px] sm:pb-[80px] md:pb-[100px] relative">
       <h1
-        className="px-6 sm:px-10 md:px-[120px] lg:px-[160px] xl:px-[200px] font-coolvetica text-xs sm:text-sm md:text-md tracking-[4px] opacity-70 mb-[5vh] md:mb-[8vh]"
+        className="px-[40px] sm:px-10 md:px-[120px] lg:px-[160px] xl:px-[200px] font-coolvetica text-xs sm:text-sm md:text-md tracking-[4px] opacity-70 mb-[5vh] md:mb-[8vh]"
         style={{ color: secondaryColor }}
       >
         HACKATHONS
@@ -50,14 +50,16 @@ const Hackathons = () => {
         {workItems.map((item, index) => (
           <div
             key={index}
-            className="border-t py-6 md:py-8 relative overflow-hidden flex flex-col md:flex-row gap-4 md:gap-0 items-start md:items-center justify-between px-6 sm:px-10 md:px-[120px] lg:px-[160px] xl:px-[200px]"
+            className="border-t py-2 sm:py-6 md:py-8 relative overflow-hidden flex flex-col md:flex-row gap-4 md:gap-0 items-start md:items-center justify-between px-[40px] sm:px-10 md:px-[120px] lg:px-[160px] xl:px-[200px] select-none"
             style={{ borderColor: `${secondaryColor}50` }}
             onMouseEnter={() => mouseEnter(index)}
             onMouseLeave={mouseLeave}
+            onTouchStart={()=>mouseEnter(index)}
+            onTouchEnd={mouseLeave}
           >
             {/* Base text layer in secondary color */}
             <h2
-              className="text-[clamp(1.8rem,5vw,5rem)] font-coolvetica font-black tracking-[4px] leading-tight md:leading-10 relative z-10 cursor-pointer"
+              className="text-[1.4rem] sm:text-[clamp(1.8rem,5vw,5rem)] font-coolvetica font-black tracking-[4px] leading-tight md:leading-10 relative z-10 cursor-pointer"
               style={{ color: secondaryColor }}
             >
               {item.text}
@@ -108,7 +110,7 @@ const Hackathons = () => {
         />
       )}
       <p
-        className=" text-[clamp(2rem,4vw,3rem)] px-6 sm:px-10 md:px-[120px] lg:px-[160px] xl:px-[200px] tracking-[8px] sm:tracking-[10px] md:tracking-[12px] font-baloo"
+        className="text-[1.5rem] sm:text-[clamp(2rem,4vw,3rem)] px-[40px] sm:px-10 md:px-[120px] lg:px-[160px] xl:px-[200px] tracking-[8px] sm:tracking-[10px] md:tracking-[12px] font-baloo"
         style={{
           WebkitTextStroke: `1px ${secondaryColor}`,
           color: secondaryColor,
