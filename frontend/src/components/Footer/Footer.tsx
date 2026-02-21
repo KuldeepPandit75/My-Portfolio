@@ -117,8 +117,8 @@ const Footer = memo(() => {
           className="hidden sm:block absolute bottom-0 right-0 max-h-[150px] w-auto"
         />
       </div>
-      <div className="flex flex-col w-full lg:pl-[clamp(50px,6vw,120px)] py-10 lg:py-0 gap-5 md:gap-6 justify-center lg:px-0 px-[40px] sm:px-[150px] hidden sm:block">
-        <div className="font-coolvetica mt-2 lg:mt-[60px] xl:mt-[80px]">
+      <div className="flex flex-col w-full lg:pl-[clamp(50px,6vw,120px)] py-10 lg:py-0 gap-10 md:gap-6 justify-center lg:px-0 px-[40px] sm:px-[150px] hidden sm:block">
+        <div className="font-coolvetica mt-2 lg:mt-[60px] xl:mt-[160px]">
           <p className="text-lg md:text-xl">Email</p>
           <Link
             href="https://mail.google.com/mail/?view=cm&fs=1&to=kuldeepk11139@gmail.com"
