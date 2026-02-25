@@ -14,7 +14,6 @@ const Footer = memo(() => {
   const footerRef = useRef<HTMLElement>(null);
 
   useGSAP(() => {
-    // Only animate footer in after hero animation completes
     if (!heroAnimationComplete) return;
 
     gsap.to(footerRef.current, {
