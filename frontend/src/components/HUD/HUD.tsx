@@ -111,7 +111,6 @@ const HUD = () => {
       });
     });
 
-    // Sound label hover
     const soundLabel = soundLabelRef.current;
     if (soundLabel) {
       soundLabel.addEventListener("mouseenter", () => {
