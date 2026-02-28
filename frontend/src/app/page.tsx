@@ -59,26 +59,26 @@ export default function Home() {
   const { tertialColor } = useThemeStore();
   const { loadingComplete, animationStarted } = useStore();
 
-  const router=useRouter();
+  const router = useRouter();
 
   useEffect(() => {
-    router.prefetch("/about")
-  },[])
+    router.prefetch("/about");
+  }, []);
 
-  useEffect(()=>{
-    const images=[
+  useEffect(() => {
+    const images = [
       "/images/aboutHead2.svg",
       "/images/aboutInfo.svg",
       "/images/jss.png",
       "/images/community1.svg",
       "/images/community2.svg",
-      "/images/hobby2.svg"
-    ]
-    images.forEach((image)=>{
-      const img=new Image();
-      img.src=image;
-    })
-  },[])
+      "/images/hobby2.svg",
+    ];
+    images.forEach((image) => {
+      const img = new Image();
+      img.src = image;
+    });
+  }, []);
 
   // Show LoadingScreen first
   if (!loadingComplete) {
@@ -109,9 +109,9 @@ export default function Home() {
         <Suspense fallback={<div />}>
           <LazyProjects />
         </Suspense>
-        <div className="overflow-x-hidden">
+        <Suspense fallback={<div />}>
           <LazyExperience />
-        </div>
+        </Suspense>
         <Suspense fallback={<div />}>
           <LazyHackathons />
         </Suspense>
