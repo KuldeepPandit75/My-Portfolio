@@ -6,12 +6,54 @@ body {
   color: #1E1E1E;
 }
 
+@font-face {
+  font-family: "Coolvetica";
+  src: url("/fonts/Coolvetica Rg.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CoolCond";
+  src: url("/fonts/Coolvetica Rg Cond.otf") format("opentype");
+  font-weight: 900;
+  font-style:normal;
+}
+
+@font-face {
+  font-family: "Sugo";
+  src: url("/fonts/Sugo-Pro-Classic-Bold-trial.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sugo";
+  src: url("/fonts/Sugo-Pro-Display-Light-trial.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Samarkan";
+  src: url("/fonts/samarkan.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Baloo";
+  src: url("/fonts/baloo.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
 @theme {
-  --font-sugo: var(--font-sugo), sans-serif;
-  --font-coolvetica: var(--font-coolvetica), sans-serif;
-  --font-coolcond: var(--font-coolcond), sans-serif;
-  --font-samarkan: var(--font-samarkan), sans-serif;
-  --font-baloo: var(--font-baloo), sans-serif;
+  --font-sugo: "Sugo", sans-serif;
+  --font-coolvetica: "Coolvetica", sans-serif;
+  --font-coolcond: "CoolCond", sans-serif;
+  --font-samarkan: "Samarkan", sans-serif;
+  --font-baloo: "Baloo", sans-serif;
 }
 
 .card-container {

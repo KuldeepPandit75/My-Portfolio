@@ -10,99 +10,99 @@ const Experience = memo(() => {
   const experience = useRef<HTMLDivElement>(null);
   const cards = useRef<HTMLDivElement>(null);
 
-  useGSAP(
-    () => {
-      // On small screens, the pinned + flip interaction is hard to use.
-      // Keep the layout responsive and only enable the scroll/pin animation on md+.
-      const mm = gsap.matchMedia();
+  // useGSAP(
+  //   () => {
+  //     // On small screens, the pinned + flip interaction is hard to use.
+  //     // Keep the layout responsive and only enable the scroll/pin animation on md+.
+  //     const mm = gsap.matchMedia();
 
-      mm.add("(min-width: 1024px)", () => {
-        const tl = gsap.timeline();
-        let hasFlipped = false;
+  //     mm.add("(min-width: 1024px)", () => {
+  //       const tl = gsap.timeline();
+  //       let hasFlipped = false;
 
-        tl.to(
-          ".card-container",
-          {
-            scale: 0.8,
-            ease: "power2.out",
-          },
-          0,
-        );
+  //       tl.to(
+  //         ".card-container",
+  //         {
+  //           scale: 0.8,
+  //           ease: "power2.out",
+  //         },
+  //         0,
+  //       );
 
-        tl.to(
-          "#exhead",
-          {
-            opacity: 1,
-            y: -10,
-            ease: "power2.out",
-          },
-          0,
-        );
+  //       tl.to(
+  //         "#exhead",
+  //         {
+  //           opacity: 1,
+  //           y: -10,
+  //           ease: "power2.out",
+  //         },
+  //         0,
+  //       );
 
-        tl.to(
-          ".card-container",
-          {
-            gap: "100px",
-            ease: "power2.out",
-          },
-          ">",
-        );
+  //       tl.to(
+  //         ".card-container",
+  //         {
+  //           gap: "100px",
+  //           ease: "power2.out",
+  //         },
+  //         ">",
+  //       );
 
-        tl.to(
-          ".card",
-          {
-            borderRadius: "16px",
-            ease: "power2.out",
-          },
-          "<",
-        );
+  //       tl.to(
+  //         ".card",
+  //         {
+  //           borderRadius: "16px",
+  //           ease: "power2.out",
+  //         },
+  //         "<",
+  //       );
 
-        ScrollTrigger.create({
-          trigger: experience.current,
-          start: "top top",
-          end: "+=800",
-          animation: tl,
-          scrub: true,
-          pin: true,
-          // markers:true,
-          onUpdate: (self) => {
-            const progress = self.progress;
+  //       ScrollTrigger.create({
+  //         trigger: experience.current,
+  //         start: "top top",
+  //         end: "+=800",
+  //         animation: tl,
+  //         scrub: true,
+  //         pin: true,
+  //         // markers:true,
+  //         onUpdate: (self) => {
+  //           const progress = self.progress;
 
-            if (progress >= 0.9 && !hasFlipped) {
-              hasFlipped = true;
-              gsap.to(".card", {
-                rotateY: 180,
-                duration: 0.5,
-                ease: "power2.out",
-              });
-              gsap.to("#card1", {
-                rotateZ: -6,
-                duration: 0.5,
-                ease: "power2.out",
-              });
-              gsap.to("#card2", {
-                rotateZ: 6,
-                duration: 0.5,
-                ease: "power2.out",
-              });
-            } else if (progress < 0.9 && hasFlipped) {
-              // Reset flag if scrolling back
-              hasFlipped = false;
-              gsap.to(".card", {
-                rotateY: 0,
-                duration: 0.5,
-                rotateZ: 0,
-                ease: "power2.out",
-              });
-            }
-          },
-        });
-      });
+  //           if (progress >= 0.9 && !hasFlipped) {
+  //             hasFlipped = true;
+  //             gsap.to(".card", {
+  //               rotateY: 180,
+  //               duration: 0.5,
+  //               ease: "power2.out",
+  //             });
+  //             gsap.to("#card1", {
+  //               rotateZ: -6,
+  //               duration: 0.5,
+  //               ease: "power2.out",
+  //             });
+  //             gsap.to("#card2", {
+  //               rotateZ: 6,
+  //               duration: 0.5,
+  //               ease: "power2.out",
+  //             });
+  //           } else if (progress < 0.9 && hasFlipped) {
+  //             // Reset flag if scrolling back
+  //             hasFlipped = false;
+  //             gsap.to(".card", {
+  //               rotateY: 0,
+  //               duration: 0.5,
+  //               rotateZ: 0,
+  //               ease: "power2.out",
+  //             });
+  //           }
+  //         },
+  //       });
+  //     });
 
-      return () => mm.revert();
-    },
-    { scope: experience },
-  );
+  //     return () => mm.revert();
+  //   },
+  //   { scope: experience },
+  // );
 
   return (
     <section
