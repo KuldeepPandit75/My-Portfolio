@@ -296,7 +296,7 @@ const LoadingScreen = () => {
           {/* Percentage Text in Center */}
           <div className="absolute inset-0 flex items-center justify-center">
             <p
-              className="text-5xl font-coolcond font-black tracking-wider"
+              className="text-5xl font-coolcond font-black tracking-wider w-[120px] text-center tabular-nums"
               style={{ color: tertialColor }}
             >
               {progress}%
