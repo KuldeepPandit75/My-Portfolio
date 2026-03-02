@@ -66,6 +66,7 @@ const Navbar = () => {
     gsap.set("#logo", { y: -20, opacity: 0 });
     gsap.set("#nav a", { y: -20, opacity: 0 });
     gsap.set("#nav .resume-btn", { y: -20, opacity: 0 });
+    gsap.set("#mobile-menu", { y: -20, opacity: 0 });
 
     // Animate to final state
     tl.to("#logo", {
@@ -104,6 +105,17 @@ const Navbar = () => {
         ease: "power2.out",
       },
       "-=0.6",
+    );
+
+    tl.to(
+      "#mobile-menu",
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power2.out",
+      },
+      "<",
     );
 
     // Add hover effects for all nav items
@@ -179,7 +191,7 @@ const Navbar = () => {
             color: secondaryColor,
           }}
         >
-          KULDEEP
+          KULDEEP K PANDIT
         </h1>
       </Link>
 
@@ -224,7 +236,7 @@ const Navbar = () => {
         </ul>
 
         {/* Compact mobile menu */}
-        <div className="sm:hidden flex items-center gap-3 bg-black/70 px-0 py-2 rounded-full">
+        <div id="mobile-menu" className="sm:hidden flex items-center gap-3 bg-black/70 px-0 py-2 rounded-full opacity-0">
           <span
             className="text-xs font-sugo tracking-[2px] uppercase"
             style={{ color: secondaryColor }}

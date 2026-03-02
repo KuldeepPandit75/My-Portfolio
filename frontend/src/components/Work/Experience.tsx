@@ -114,12 +114,12 @@ const Experience = memo(() => {
 
   return (
     <section
-      className="py-16 md:py-[150px] lg:py-0 px-6 sm:px-10 md:px-0 lg:px-[200px] lg:h-[calc(100vh+800px)] lg:relative"
+      className="py-16 md:py-[150px] lg:py-0 px-[40px] sm:px-10 md:px-0 lg:px-[200px] lg:h-[calc(100vh+800px)] lg:relative"
       ref={experience}
     >
       <div className="lg:sticky lg:top-0 lg:h-screen lg:w-full lg:flex lg:flex-col lg:justify-center overflow-hidden lg:overflow-visible">
         <h1
-          className="px-6 sm:px-10 md:px-[120px] lg:px-[160px] xl:px-[200px] font-coolvetica text-xs sm:text-sm md:text-md tracking-[4px] opacity-70 mb-[5vh] md:mb-[8vh] lg:hidden"
+          className="sm:px-10 md:px-[120px] lg:px-[160px] xl:px-[200px] font-coolvetica text-xs sm:text-sm md:text-md tracking-[4px] opacity-70 mb-[5vh] md:mb-[8vh] lg:hidden"
           style={{ color: secondaryColor }}
         >
           EXPERIENCE
@@ -137,9 +137,9 @@ const Experience = memo(() => {
         >
           <div
             id="card1"
-            className="relative card w-full lg:max-w-[440px] md:max-w-[400px] md:min-w-[400px] flex flex-col rounded-[16px] md:rounded-[16px] lg:rounded-[16px_0_0_16px] md:rotate-y-180 md:rotate-z-6 lg:rotate-y-0 lg:rotate-z-0 lg:min-w-[440px] md:scale-75 lg:scale-100"
+            className="relative card w-full lg:max-w-[440px] md:max-w-[400px] md:min-w-[400px] flex flex-col rounded-[16px] md:rounded-[16px] lg:rounded-[16px_0_0_16px] rotate-y-180 md:rotate-y-180 md:rotate-z-6 lg:rotate-y-0 lg:rotate-z-0 lg:min-w-[440px] md:scale-75 lg:scale-100"
           >
-            <div className="card-front h-[360px] sm:h-[420px] md:h-[500px] overflow-hidden">
+            <div className="card-front h-[450px] sm:h-[420px] md:h-[500px] overflow-hidden">
               <Image
                 src="/images/cleft.png"
                 className="brightness-70 w-full h-full object-cover"
@@ -201,9 +201,9 @@ const Experience = memo(() => {
           </div>
           <div
             id="card2"
-            className="card w-full md:max-w-[400px] lg:max-w-[440px] md:min-w-[400px] flex flex-col rounded-[16px] md:rounded-[16px] lg:rounded-[0_16px_16px_0] md:rotate-y-180 md:-rotate-z-6 lg:rotate-y-0 lg:rotate-z-0 lg:min-w-[440px] md:scale-75 lg:scale-100"
+            className="card w-full md:max-w-[400px] lg:max-w-[440px] md:min-w-[400px] flex flex-col rounded-[16px] md:rounded-[16px] lg:rounded-[0_16px_16px_0] md:rotate-y-180 rotate-y-180 md:-rotate-z-6 lg:rotate-y-0 lg:rotate-z-0 lg:min-w-[440px] md:scale-75 lg:scale-100"
           >
-            <div className="card-front h-[360px] sm:h-[420px] md:h-[500px] overflow-hidden">
+            <div className="card-front h-[400px] sm:h-[420px] md:h-[500px] overflow-hidden">
               <Image
                 src="/images/cright.png"
                 className="brightness-70 w-full h-full object-cover"

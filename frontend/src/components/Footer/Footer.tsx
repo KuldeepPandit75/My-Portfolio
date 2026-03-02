@@ -113,7 +113,7 @@ const Footer = memo(() => {
           alt="footer"
           width={220}
           height={220}
-          className="hidden sm:block absolute bottom-0 right-0 max-h-[150px] w-auto"
+          className="absolute bottom-0 right-0 max-h-[100px] sm:max-h-[150px] w-auto"
         />
       </div>
       <div className="flex flex-col w-full lg:pl-[clamp(50px,6vw,120px)] py-10 lg:py-0 gap-5 md:gap-6 lg-gap-10 justify-center lg:px-0 px-[40px] sm:px-[150px] hidden sm:flex">

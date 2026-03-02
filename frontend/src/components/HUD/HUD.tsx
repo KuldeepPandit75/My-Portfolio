@@ -93,6 +93,16 @@ const HUD = () => {
       "<",
     );
 
+    tl.to(
+      "#mobile-sound",
+      {
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+      },
+      "<",
+    );
+
     const socialIcons = document.querySelectorAll(".social-icon");
     socialIcons.forEach((icon) => {
       icon.addEventListener("mouseenter", () => {
@@ -203,7 +213,7 @@ const HUD = () => {
           </p>
         </div>
       </div>
-      <div className="sm:hidden fixed bottom-6 right-6 z-100">
+      <div id="mobile-sound" className="sm:hidden fixed bottom-6 right-6 z-100 opacity-0">
         <button
           onClick={() => setSound(!sound)}
           className="w-12 h-12 rounded-full border flex items-center justify-center backdrop-blur-sm transition-all duration-300 shadow-[0_0_15px_rgba(0,0,0,0.3)] hover:shadow-[0_0_20px_rgba(0,0,0,0.5)] active:scale-95"
