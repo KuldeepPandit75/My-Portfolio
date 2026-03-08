@@ -129,7 +129,7 @@ const Hero = memo(() => {
       <div>
         <h2
           id="hello"
-          className=" text-3xl sm:text-[clamp(1rem,4vw,4rem)] font-black font-sugo tracking-[2px] absolute top-[50vh] left-[50vw] -translate-x-[40%] sm:-translate-x-[45%] -translate-y-1/2 text-center w-screen scale-200"
+          className=" text-3xl sm:text-[clamp(1rem,4vw,4rem)] font-black font-sugo tracking-[2px] absolute top-[50vh] left-[50vw] -translate-x-[40%] sm:-translate-x-[44%] -translate-y-1/2 text-center w-screen scale-200"
         >
           {greetings}{" "}
           <b id="im" className="opacity-0" style={{ color: primaryColor }}>
