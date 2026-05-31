@@ -29,7 +29,28 @@ const skillsData = {
 
 const Skills = () => {
   const [activeCard, setActiveCard] = useState<string | null>(null);
-  const container = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const getScrollAmount = () => {
+      if (!containerRef.current) return 0;
+      return Math.max(0, containerRef.current.scrollWidth - window.innerWidth);
+    };
+
+    gsap.to(containerRef.current, {
+      x: () => -getScrollAmount(),
+      ease: "none",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top top",
+        end: () => `+=${getScrollAmount() || window.innerHeight * 0.5}`,
+        pin: true,
+        scrub: 1,
+        invalidateOnRefresh: true,
+      },
+    });
+  });
 
   const handleCardClick = (cardName: string) => {
     setActiveCard(activeCard === cardName ? null : cardName);
@@ -41,20 +62,20 @@ const Skills = () => {
     <section className="relative">
       {/* Heading scrolls normally */}
       <h1
-        className="lg:px-[200px] md:px-[120px] font-coolvetica text-md tracking-[4px] opacity-70 mb-[8vh]"
+        className="px-6 sm:px-10 lg:px-[200px] md:px-[120px] font-coolvetica text-md tracking-[4px] opacity-70 mb-[8vh]"
         style={{ color: secondaryColor }}
       >
         SKILLS
       </h1>
 
       {/* Scroll spacer */}
-      <div className="relative h-[150vh]">
+      <div className="relative h-screen overflow-hidden" ref={sectionRef}>
         {/* Sticky only grid */}
-        <div className="sticky top-0 h-screen">
-          <div className="grid gap-2 grid-cols-4 w-full overflow-hidden h-full px-2">
+        <div className="w-full h-full">
+          <div className="flex gap-2 w-full h-full px-2" ref={containerRef}>
             {/* LANGUAGES Column */}
             <div
-              className={`relative transition-all duration-600 ease-in-out cursor-pointer group ${
+              className={`flex-1 min-w-[300px] relative transition-all duration-600 ease-in-out cursor-pointer group ${
                 activeCard === "languages"
                   ? "bottom-[80px]"
                   : "bottom-0 hover:bottom-[80px]"
@@ -103,7 +124,7 @@ const Skills = () => {
 
             {/* LIBRARIES Column */}
             <div
-              className={`relative transition-all duration-600 ease-in-out cursor-pointer group ${
+              className={`flex-1 min-w-[300px] relative transition-all duration-600 ease-in-out cursor-pointer group ${
                 activeCard === "libraries"
                   ? "bottom-[80px]"
                   : "bottom-0 hover:bottom-[80px]"
@@ -152,7 +173,7 @@ const Skills = () => {
 
             {/* TOOLS Column */}
             <div
-              className={`relative transition-all duration-600 ease-in-out cursor-pointer group ${
+              className={`flex-1 min-w-[300px] relative transition-all duration-600 ease-in-out cursor-pointer group ${
                 activeCard === "tools"
                   ? "bottom-[80px]"
                   : "bottom-0 hover:bottom-[80px]"
@@ -206,7 +227,7 @@ const Skills = () => {
 
             {/* VERSION CONTROL Column */}
             <div
-              className={`relative transition-all duration-600 ease-in-out cursor-pointer group ${
+              className={`flex-1 min-w-[300px] relative transition-all duration-600 ease-in-out cursor-pointer group ${
                 activeCard === "versionControl"
                   ? "bottom-[120px]"
                   : "bottom-0 hover:bottom-[120px]"

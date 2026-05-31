@@ -125,11 +125,11 @@ const AboutPage = () => {
     <div id="about" className="px-6 sm:px-10 md:px-[120px] lg:px-[180px]">
       <div
         id="title"
-        className="flex justify-between items-center h-[80vh] ml-10 mb-[50px] mt-[12vh]"
+        className="flex sm:flex-row flex-col-reverse justify-between items-center h-[65vh] sm:h-[80vh] sm:ml-10 mb-[50px] mt-[22vh] sm:mt-[12vh]"
       >
-        <div>
+        <div className="text-center sm:text-left">
           <h1
-            className="text-[80px] font-coolvetica w-[30vw] leading-[100px] tracking-widest"
+            className="text-[clamp(40px,5vw,80px)] font-coolvetica w-[30vw] sm:leading-[100px] tracking-widest"
             style={{ color: primaryColor }}
           >
             Kuldeep Pandit
@@ -142,7 +142,7 @@ const AboutPage = () => {
           </h1>
         </div>
         <Image
-          src="/images/aboutHead2.webp"
+          src="/images/aboutHead24.webp"
           alt="profile"
           id="profileImg"
           width={600}
@@ -153,12 +153,12 @@ const AboutPage = () => {
             background:
               "radial-gradient(60.87% 40.94% at 54.79% 56.77%, rgba(255, 255, 255, 0.00) 0%, #F0EBE7 100%)",
           }}
-          className="absolute top-0 right-0 w-screen h-[95vh]"
+          className="absolute top-0 right-0 w-screen h-[95vh] hidden sm:block"
         ></div>
       </div>
       <div
         id="info"
-        className="flex justify-center items-center relative mb-[150px]"
+        className="flex sm:flex-row flex-col justify-center items-center relative mb-[150px]"
       >
         <div className="w-[50%] flex justify-end">
           <div className="relative right-[90px] h-[80vh] w-fit">
@@ -170,7 +170,7 @@ const AboutPage = () => {
               height={500}
             />
             <div
-              className="absolute inset-0 pointer-events-none"
+              className="absolute inset-0 pointer-events-none hidden sm:block"
               style={{
                 background:
                   "radial-gradient(78.05% 80.37% at 54.53% 44.08%, rgba(240, 235, 231, 0.00) 0%, #F0EBE7 86.18%)",
@@ -278,7 +278,10 @@ const AboutPage = () => {
           COMMUNITY &amp; PRESENCE
         </h2>
 
-        <div id="publicSpeaking" className="grid md:grid-cols-2 gap-16 items-center mb-20">
+        <div
+          id="publicSpeaking"
+          className="grid md:grid-cols-2 gap-16 items-center mb-20"
+        >
           {/* Top-left: text about public speaking */}
           <div>
             <p
@@ -316,7 +319,10 @@ const AboutPage = () => {
           </div>
         </div>
 
-        <div id="communityGroup" className="grid md:grid-cols-2 gap-16 items-center">
+        <div
+          id="communityGroup"
+          className="grid md:grid-cols-2 gap-16 items-center"
+        >
           {/* Bottom-left: large community image with overlay */}
           <div className="flex">
             <div className="relative w-full max-w-[520px] h-[280px] sm:h-[320px] overflow-hidden rounded-[32px]">

@@ -33,50 +33,59 @@ const Projects = memo(() => {
   return (
     <div className="pt-[210px]">
       <h1
-        className="lg:px-[200px] md:px-[120px] font-coolvetica text-md tracking-[4px] opacity-70 mb-[8vh]"
+        className="px-6 sm:px-10 lg:px-[200px] md:px-[120px] font-coolvetica text-md tracking-[4px] opacity-70 mb-[8vh]"
         style={{ color: secondaryColor }}
       >
         PROJECTS
       </h1>
-      <div className="md:px-[130px] lg:px-[200px] xl:px-[250px]" ref={project}>
+      <div
+        className="px-[30px] md:px-[130px] lg:px-[200px] xl:px-[250px]"
+        ref={project}
+      >
         {/* VaultMeet */}
         <div
-          className="h-[65vh] rounded-4xl sticky top-[25vh] flex flex-col justify-center "
+          className="lg:h-[65vh] rounded-2xl lg:rounded-4xl sticky top-[25vh] flex flex-col justify-center items-center sm:items-start pt-[20px] pb-[40px]"
           style={{ backgroundColor: secondaryColor }}
         >
           <div className="w-fit mx-[50px] flex font-coolvetica items-center text-[clamp(1.3rem,2vw,1.8rem)] tracking-widest ">
             <Image
               src="/icons/vm.svg"
               alt="vm"
-              className="mt-[10px] h-[clamp(64px,6vw,80px)] w-[clamp(64px,6vw,80px)]"
+              className="sm:mt-[10px] h-[clamp(50px,6vw,80px)] w-[clamp(50px,6vw,80px)]"
               width={80}
               height={80}
             />
             <h2>VaultMeet</h2>
           </div>
-          <div className="flex justify-between mx-[50px] font-coolvetica items-center gap-[50px] h-[60%]">
-            <div className="flex flex-col gap-[30px]">
-              <p className="tracking-[4px] text-[clamp(6px,1.5vw,18px)]">SAAS PLATFORM</p>
-              <p className="text-[clamp(12px,2.5vw,36px)] leading-tight">Where Virtual Events Feel Real.</p>
-              <div className="flex gap-[20px] items-center mt-[20px]">
+          <div className="flex flex-col-reverse lg:flex-row justify-between mx-[50px] font-coolvetica items-center gap-[30px] sm:gap-[50px] h-[60%] ">
+            <div className="flex flex-row lg:flex-col gap-[30px]">
+              <div className="flex flex-col gap-[10px] lg:mt-8">
+                <p className="tracking-[4px] text-[clamp(8px,1.5vw,18px)]">
+                  SAAS PLATFORM
+                </p>
+                <p className="text-[clamp(12px,2.5vw,36px)] leading-tight">
+                  Where Virtual Events Feel Real.
+                </p>
+              </div>
+              <div className="flex gap-[20px] items-center sm:mt-[20px]">
                 <a
-                  href="https://vaultmeet.xyz"
+                  href="https://vaultmeet.in"
                   target="_blank"
-                  className="px-[clamp(10px,2vw,20px)] py-[clamp(5px,1vw,10px)] rounded-full"
+                  className="px-[clamp(10px,2vw,20px)] py-[clamp(5px,1vw,10px)] rounded-full text-[clamp(8px,1.5vw,20px)] text-center"
                   style={{ backgroundColor: primaryColor, color: "white" }}
                 >
-                  Visit Platform &nbsp; &nbsp; --&gt;
+                  Visit Platform
                 </a>
               </div>
             </div>
-            <div className="-mt-[80px]">
+            <div className="lg:-mt-[80px]">
               <Image src="/images/vm.svg" alt="vm" width={500} height={500} />
             </div>
           </div>
         </div>
         {/* VedicVerse */}
         <div
-          className="h-[65vh] rounded-4xl sticky top-[25vh] mt-[50px] flex flex-col justify-center"
+          className="lg:h-[65vh] rounded-2xl lg:rounded-4xl sticky top-[25vh] mt-[50px] flex flex-col justify-center items-center sm:items-start pt-[20px] pb-[40px]"
           style={{ backgroundColor: secondaryColor }}
         >
           <div className="w-fit mx-[50px] py-[30px] flex items-center gap-6">
@@ -91,34 +100,38 @@ const Projects = memo(() => {
               VedicVerse
             </h2>
           </div>
-          <div className="flex justify-between mx-[50px] font-coolvetica items-center gap-[50px] h-[70%]">
-            <div className="flex flex-col gap-[30px]">
-              <p className="tracking-[4px] text-[clamp(6px,1.5vw,18px)] leading-tight">VEDIC KNOWLEDGE PLATFORM</p>
-              <p className="text-[clamp(12px,2.5vw,36px)] leading-tight">
-                Play, Explore, and Learn the Vedic World.
-              </p>
-              <div className="flex gap-[20px] items-center mt-[20px]">
+          <div className="flex flex-col-reverse lg:flex-row justify-between mx-[50px] font-coolvetica items-center gap-[30px] sm:gap-[50px] h-[70%]">
+            <div className="flex flex-row lg:flex-col gap-[30px]">
+              <div className="flex flex-col gap-[10px] lg:mt-8">
+                <p className="tracking-[4px] text-[clamp(8px,1.5vw,18px)] leading-tight">
+                  VEDIC KNOWLEDGE PLATFORM
+                </p>
+                <p className="text-[clamp(12px,2.5vw,36px)] leading-tight">
+                  Play, Explore, and Learn the Vedic World.
+                </p>
+              </div>
+              <div className="flex gap-[20px] items-center sm:mt-[20px]">
                 <a
                   href="https://vedic-verse.vercel.app/"
                   target="_blank"
-                  className="px-[clamp(10px,1.5vw,20px)] py-[clamp(5px,1vw,10px)] rounded-full"
+                  className="px-[clamp(10px,1.5vw,20px)] py-[clamp(5px,1vw,10px)] rounded-full text-center text-[clamp(8px,1.5vw,20px)]"
                   style={{ backgroundColor: primaryColor, color: "white" }}
                 >
-                  Visit Platform &nbsp; &nbsp; --&gt;
+                  Visit Platform
                 </a>
               </div>
             </div>
-            <div className="">
+            <div className="-ml-12">
               <Image src="/images/vv.svg" alt="vv" width={800} height={800} />
             </div>
           </div>
         </div>
         {/* BirlaAI */}
         <div
-          className="h-[65vh] rounded-4xl sticky top-[25vh] mt-[50px] flex flex-col justify-center"
+          className="lg:h-[65vh] rounded-2xl lg:rounded-4xl sticky top-[25vh] mt-[50px] flex flex-col justify-center items-center sm:items-start pt-[20px] pb-[40px]"
           style={{ backgroundColor: secondaryColor }}
         >
-          <div className="w-fit mx-[50px] gap-4 py-[30px] flex items-center text-[clamp(1.5rem,2vw,2.2rem)]">
+          <div className="w-fit mx-[50px] gap-4 pt-[20px] pb-[10px] sm:py-[30px] flex items-center text-[clamp(1.5rem,2vw,2.2rem)]">
             <Image
               src="/icons/pracai.svg"
               alt="vm"
@@ -128,22 +141,28 @@ const Projects = memo(() => {
             />
             <h2 className="font-baloo">BirlaAI</h2>
           </div>
-          <div className="flex justify-between mx-[50px] font-coolvetica items-center gap-[50px] h-[60%]">
-            <div className="flex flex-col gap-[30px]">
-              <p className="tracking-[4px] text-[clamp(6px,1.5vw,18px)]">EDTECH PLATFORM</p>
-              <p className="text-[clamp(12px,2.5vw,36px)]">Meta Space for Learning AI</p>
-              <div className="flex gap-[20px] items-center mt-[20px]">
+          <div className="flex flex-col-reverse lg:flex-row justify-between mx-[50px] font-coolvetica items-center gap-[30px] sm:gap-[50px] h-[60%]">
+            <div className="flex flex-row lg:flex-col gap-[30px]">
+              <div className="flex flex-col gap-[10px] lg:mt-8">
+                <p className="tracking-[4px] text-[clamp(8px,1.5vw,18px)]">
+                  EDTECH PLATFORM
+                </p>
+                <p className="text-[clamp(12px,2.5vw,36px)]">
+                  Meta Space for Learning AI
+                </p>
+              </div>
+              <div className="flex gap-[20px] items-center sm:mt-[20px]">
                 <a
                   href="https://birlaai.in/"
                   target="_blank"
-                  className="px-[clamp(10px,1.4vw,20px)] py-[clamp(5px,1vw,10px)] rounded-full"
+                  className="px-[clamp(10px,1.4vw,20px)] py-[clamp(5px,1vw,10px)] rounded-full text-[clamp(8px,1.5vw,20px)] text-center"
                   style={{ backgroundColor: primaryColor, color: "white" }}
                 >
-                  Visit Platform &nbsp; &nbsp;--&gt;
+                  Visit Platform
                 </a>
               </div>
             </div>
-            <div className="">
+            <div className="-ml-10">
               <Image
                 src="/images/birlai.svg"
                 alt="vm"
@@ -155,10 +174,10 @@ const Projects = memo(() => {
         </div>
         {/* Chat Analyzer */}
         <div
-          className="h-[65vh] rounded-4xl sticky top-[25vh] mt-[50px] flex flex-col justify-center"
+          className="lg:h-[65vh] rounded-2xl lg:rounded-4xl sticky top-[25vh] mt-[50px] flex flex-col justify-center items-center sm:items-start pt-[20px] pb-[40px]"
           style={{ backgroundColor: secondaryColor }}
         >
-          <div className="w-fit mx-[50px] pb-[40px] flex font-coolvetica items-center gap-5 text-[clamp(1.4rem,2vw,2.2rem)]">
+          <div className="w-fit mx-[50px] pt-[20px] pb-[30px] flex font-coolvetica items-center gap-5 text-[clamp(1.4rem,2vw,2.2rem)]">
             <Image
               src="/icons/chat.svg"
               alt="vm"
@@ -168,32 +187,38 @@ const Projects = memo(() => {
             />
             <h2>Chat Analyzer</h2>
           </div>
-          <div className="flex justify-between mx-[50px] font-coolvetica items-center gap-[50px] h-[60%]">
-            <div className="flex flex-col gap-[30px]">
-              <p className="tracking-[4px] text-[clamp(6px,1.5vw,18px)]">CHAT ANALYZING PLATFORM</p>
-              <p className="text-[clamp(12px,2.5vw,36px)]">Read the Real Story Behind Chats.</p>
-              <div className="flex gap-[20px] items-center mt-[20px]">
+          <div className="flex flex-col-reverse lg:flex-row justify-between mx-[50px] font-coolvetica items-center gap-[10px] sm:gap-[50px] h-[60%]">
+            <div className="flex flex-row lg:flex-col gap-[30px]">
+              <div className="flex flex-col gap-[10px] lg:mt-8">
+                <p className="tracking-[4px] text-[clamp(8px,1.5vw,18px)]">
+                  CHAT ANALYZING PLATFORM
+                </p>
+                <p className="text-[clamp(12px,2.5vw,36px)]">
+                  Read the Real Story Behind Chats.
+                </p>
+              </div>
+              <div className="flex gap-[20px] items-center sm:mt-[20px]">
                 <a
                   href="https://whatsapp-chat-analyzer-tan.vercel.app/"
                   target="_blank"
-                  className="px-[clamp(10px,1.4vw,20px)] py-[clamp(5px,1vw,10px)] rounded-full"
+                  className="px-[clamp(10px,1.4vw,20px)] py-[clamp(5px,1vw,10px)] rounded-full text-[clamp(8px,1.5vw,20px)] text-center"
                   style={{ backgroundColor: primaryColor, color: "white" }}
                 >
-                  Visit Platform &nbsp; &nbsp; &nbsp; --&gt;
+                  Visit Platform
                 </a>
               </div>
             </div>
-            <div className="mt-[50px]">
+            <div className="lg:mt-[50px] -mr-3">
               <Image src="/images/chat.svg" alt="vm" width={500} height={500} />
             </div>
           </div>
         </div>
         {/* VaulTrade */}
         <div
-          className="h-[65vh] rounded-4xl sticky top-[25vh] mt-[50px] flex flex-col justify-center"
+          className="lg:h-[65vh] rounded-2xl lg:rounded-4xl sticky top-[25vh] mt-[50px] flex flex-col justify-center items-center sm:items-start pt-[20px] pb-[40px]"
           style={{ backgroundColor: secondaryColor }}
         >
-          <div className="w-fit mx-[50px] pb-[40px] flex font-coolvetica items-center gap-5 text-[clamp(1.8rem,2vw,2.2rem)]">
+          <div className="w-fit mx-[50px] pt-[20px] pb-[40px] flex font-coolvetica items-center gap-5 text-[clamp(1.5rem,2vw,2.2rem)]">
             <Image
               src="/icons/vt.svg"
               alt="vm"
@@ -203,22 +228,28 @@ const Projects = memo(() => {
             />
             <h2>VaulTrade</h2>
           </div>
-          <div className="flex justify-between mx-[50px] font-coolvetica items-center gap-[50px] h-[60%]">
-            <div className="flex flex-col gap-[30px]">
-              <p className="tracking-[4px] text-[clamp(6px,1.5vw,18px)]">PAPER TRADING PLATFORM</p>
-              <p className="text-[clamp(12px,2.5vw,36px)]">Your Safe Space to Master Trading.</p>
-              <div className="flex gap-[20px] items-center mt-[20px]">
+          <div className="flex flex-col-reverse lg:flex-row justify-between mx-[50px] font-coolvetica items-center gap-[30px] sm:gap-[50px] h-[60%]">
+            <div className="flex flex-row lg:flex-col gap-[30px]">
+              <div className="flex flex-col gap-[10px] lg:mt-8">
+                <p className="tracking-[4px] text-[clamp(8px,1.5vw,18px)]">
+                  PAPER TRADING PLATFORM
+                </p>
+                <p className="text-[clamp(12px,2.5vw,36px)]">
+                  Your Safe Space to Master Trading.
+                </p>
+              </div>
+              <div className="flex gap-[20px] items-center sm:mt-[20px]">
                 <a
                   href="https://vault-trade-omega.vercel.app/"
                   target="_blank"
-                  className="px-[clamp(10px,1.4vw,20px)] py-[clamp(5px,1vw,10px)] rounded-full"
+                  className="px-[clamp(10px,1.4vw,20px)] py-[clamp(5px,1vw,10px)] rounded-full text-[clamp(8px,1.5vw,20px)] text-center"
                   style={{ backgroundColor: primaryColor, color: "white" }}
                 >
-                  Visit Platform &nbsp; &nbsp; &nbsp; --&gt;
+                  Visit Platform
                 </a>
               </div>
             </div>
-            <div className="mt-[40px]">
+            <div className="lg:mt-[40px] -mr-6">
               <Image src="/images/vt.svg" alt="vm" width={600} height={600} />
             </div>
           </div>

@@ -35,7 +35,7 @@ const Work = () => {
   ];
 
   return (
-    <section className="pb-16 md:pb-[210px]">
+    <section className="pb-16 md:pb-[210px] select-none">
       <h1
         className="px-6 sm:px-10 md:px-[120px] lg:px-[200px] font-coolvetica text-xs sm:text-sm md:text-md tracking-[4px] opacity-70 mb-[5vh] md:mb-[8vh]"
         style={{ color: secondaryColor }}

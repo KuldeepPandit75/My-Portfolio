@@ -4,9 +4,8 @@ import { useStore } from "@/src/Zustand_Store/Store";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Link from "next/link";
-import { Router } from "next/router";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Navbar = () => {
   const { primaryColor, secondaryColor, tertialColor } = useThemeStore();
@@ -20,10 +19,16 @@ const Navbar = () => {
   const isAbout = pathname === "/about";
   const isAboutRef = useRef(isAbout);
   const hasAnimatedRef = useRef(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     isAboutRef.current = isAbout;
   }, [isAbout]);
+
+  // Close menu on route change
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   // Ensure navbar/hud/footer are visible on non-home pages where Hero doesn't run
   // Also ensure we don't show loading screen/start button if returning to home
@@ -197,7 +202,10 @@ const Navbar = () => {
 
       {/* Menu Items - With blend mode */}
       <nav className="fixed top-0 right-0 mt-[3vh] sm:mt-[4vh] lg:mt-[5vh] mx-4 sm:mx-8 md:mx-[60px] xl:mx-[80px] mix-blend-difference select-none z-100">
-        <ul className="hidden sm:flex gap-[4vw] items-center" id="nav">
+        <ul
+          className="hidden sm:flex gap-[4vw] items-center"
+          id="nav"
+        >
           <Link
             id="about-link"
             href="/about"
@@ -235,26 +243,103 @@ const Navbar = () => {
           </a>
         </ul>
 
-        {/* Compact mobile menu */}
-        <div id="mobile-menu" className="sm:hidden flex items-center gap-3 bg-black/70 px-0 py-2 rounded-full opacity-0">
-          <span
-            className="text-xs font-sugo tracking-[2px] uppercase"
-            style={{ color: secondaryColor }}
+        {/* Compact mobile menu button */}
+        <div className="sm:hidden relative mr-3">
+          <button
+            id="mobile-menu"
+            className="text-black p-2 rounded-lg transition-colors opacity-0 cursor-pointer"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle mobile menu"
           >
-            Menu
-          </span>
-          <div className="flex flex-col gap-[3px]">
-            <span
-              className="h-[2px] w-5 rounded-full"
-              style={{ backgroundColor: secondaryColor }}
-            />
-            <span
-              className="h-[2px] w-4 rounded-full"
-              style={{ backgroundColor: secondaryColor }}
-            />
-          </div>
+            <div
+              className={`flex flex-col mix-blend-difference gap-2 relative transition-all duration-300 ${
+                isMenuOpen ? "h-0" : "h-4"
+              }`}
+            >
+              <div
+                className={`w-6 rounded-full border-t-[3px] absolute transition-all duration-300 ${
+                  isMenuOpen
+                    ? "rotate-45 top-[50%] -translate-y-[50%]"
+                    : "top-0"
+                }`}
+                style={{ borderColor: secondaryColor }}
+              ></div>
+              <div
+                className={`w-6 rounded-full border-t-[3px] absolute transition-all duration-300 ${
+                  isMenuOpen
+                    ? "-rotate-45 top-[50%] -translate-y-[50%]"
+                    : "bottom-0"
+                }`}
+                style={{ borderColor: secondaryColor }}
+              ></div>
+            </div>
+          </button>
+
+          
         </div>
       </nav>
+      {/* Dropdown menu */}
+          <div
+            className={`fixed top-14 right-4 z-100 mt-3 rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 ease-in-out origin-top-right ${
+              isMenuOpen
+                ? "opacity-100 scale-100 pointer-events-auto"
+                : "opacity-0 scale-95 pointer-events-none"
+            }`}
+            style={{
+              backgroundColor: primaryColor,
+              minWidth: "180px",
+            }}
+          >
+            <div
+              className={`flex flex-col transition-all duration-300 delay-75 ${
+                isMenuOpen
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 -translate-y-2"
+              }`}
+            >
+              {/* About */}
+              <Link
+                href="/about"
+                onClick={() => setIsMenuOpen(false)}
+                className="px-6 py-4 font-sugo tracking-[2px] text-sm uppercase transition-all duration-200 hover:opacity-70"
+                style={{ color: secondaryColor }}
+              >
+                About
+              </Link>
+
+              {/* Contact */}
+              <button
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  const contactSection = document.getElementById("contact");
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                className="px-6 py-4 font-sugo tracking-[2px] text-sm uppercase text-left transition-all duration-200 hover:opacity-70 border-t"
+                style={{
+                  color: secondaryColor,
+                  borderColor: `${secondaryColor}20`,
+                }}
+              >
+                Contact
+              </button>
+
+              {/* Resume */}
+              <a
+                href="/resume.pdf"
+                download="resume.pdf"
+                onClick={() => setIsMenuOpen(false)}
+                className="mx-4 mb-4 mt-3 px-4 py-3 rounded-lg font-sugo tracking-[2px] text-sm uppercase text-center transition-all duration-200 hover:opacity-80"
+                style={{
+                  backgroundColor: tertialColor,
+                  color: secondaryColor,
+                }}
+              >
+                Resume
+              </a>
+            </div>
+          </div>
     </>
   );
 };
