@@ -4,7 +4,7 @@ import { useThemeStore } from "@/src/Zustand_Store/ThemeStore";
 const About = () => {
   const { primaryColor, tertialColor, secondaryColor } = useThemeStore();
   return (
-    <section className="px-6 sm:px-10 md:px-[120px] lg:px-[200px] py-16 md:py-[180px] lg:py-[210px]">
+    <section className="px-6 sm:px-10 md:px-[120px] lg:px-[200px] py-16 md:py-[180px] lg:py-[210px] h-screen flex flex-col justify-center">
       <h1
         className="font-coolvetica text-xs sm:text-sm md:text-md tracking-[4px] opacity-70"
         style={{ color: secondaryColor }}

@@ -60,15 +60,14 @@ const Work = () => {
               {item.text}
             </h2>
             <p
-              style={{ color: tertialColor }}
-              className="z-30 font-coolvetica text-sm sm:text-base max-w-full md:max-w-[30vw]"
+              className="z-30 font-coolvetica text-sm sm:text-base max-w-full md:max-w-[30vw] lg:text-[#1E1E1E] text-white"
             >
               {item.brief}
             </p>
 
             {/* Expanding overlay background */}
             <div
-              className="absolute top-1/2 left-0 w-full transition-all duration-300 ease-in-out z-20"
+              className="absolute top-1/2 left-0 w-full transition-all duration-300 ease-in-out z-20 hidden lg:block"
               style={{
                 backgroundColor: primaryColor,
                 transform: "translateY(-50%)",

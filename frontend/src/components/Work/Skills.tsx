@@ -146,7 +146,7 @@ const Skills = () => {
                 )}
               </div>
               <p className="absolute mx-4 font-sugo w-full -bottom-16 pt-20 text-white text-5xl font-bold uppercase tracking-widest">
-                Libraries
+                Lib/Frame
               </p>
             </div>
 
