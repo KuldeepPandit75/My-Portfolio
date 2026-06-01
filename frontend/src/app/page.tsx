@@ -96,7 +96,7 @@ export default function Home() {
       <div className="absolute top-0 w-full -z-1">
         <LazyHero />
       </div>
-      <div className="mt-[100vh]" style={{ backgroundColor: tertialColor }}>
+      <div className="mt-[100vh] overflow-y-hidden" style={{ backgroundColor: tertialColor }}>
         <Suspense fallback={<div />}>
           <LazyAbout />
         </Suspense>

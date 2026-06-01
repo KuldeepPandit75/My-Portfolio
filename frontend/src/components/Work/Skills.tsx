@@ -69,7 +69,7 @@ const Skills = () => {
       </h1>
 
       {/* Scroll spacer */}
-      <div className="relative h-screen overflow-hidden overflow-y-hidden" ref={sectionRef}>
+      <div className="relative h-screen overflow-hidden" ref={sectionRef}>
         {/* Sticky only grid */}
         <div className="w-full h-full">
           <div className="flex gap-2 w-full h-full px-2" ref={containerRef}>
