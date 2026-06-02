@@ -133,15 +133,7 @@ const Hackathons = () => {
           style={{ backgroundColor: "rgba(0,0,0,0.85)" }}
           onClick={() => setModalImg(null)}
         >
-          {/* Close button */}
-          <button
-            className="absolute top-18 right-8 w-9 h-9 flex items-center justify-center rounded-full text-white text-xl font-bold z-10"
-            style={{ backgroundColor: primaryColor, color: "#1e1e1e" }}
-            onClick={(e) => { e.stopPropagation(); setModalImg(null); }}
-            aria-label="Close"
-          >
-            ✕
-          </button>
+          
 
           {/* Image — stop propagation so tapping it doesn't close modal */}
           <div
