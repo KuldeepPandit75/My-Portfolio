@@ -213,49 +213,70 @@ const HUD = () => {
           </p>
         </div>
       </div>
+      {/* Mobile Sound Button - Creative Circular Design */}
       <div id="mobile-sound" className="sm:hidden fixed bottom-6 right-6 z-100 opacity-0">
         <button
           onClick={() => setSound(!sound)}
-          className="w-12 h-12 rounded-full border flex items-center justify-center backdrop-blur-sm transition-all duration-300 shadow-[0_0_15px_rgba(0,0,0,0.3)] hover:shadow-[0_0_20px_rgba(0,0,0,0.5)] active:scale-95"
-          style={{
-            borderColor: secondaryColor,
-            color: secondaryColor,
-            backgroundColor: "rgba(20, 20, 20, 0.4)",
-          }}
           aria-label="Toggle Sound"
+          className="relative w-[80px] h-[80px] flex items-center justify-center active:scale-95 transition-transform duration-150"
+          style={{ background: "transparent", border: "none", cursor: "pointer" }}
         >
-          {sound ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
+          {/* Rotating SVG ring with "SOUND - SOUND - SOUND - SOUND -" text */}
+          <svg
+            viewBox="0 0 80 80"
+            width="80"
+            height="80"
+            className="absolute inset-0"
+            style={{
+              animation: "mobileSoundSpin 6s linear infinite",
+            }}
+          >
+            <defs>
               <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z"
+                id="soundCirclePath"
+                d="M40,40 m-28,0 a28,28 0 1,1 56,0 a28,28 0 1,1 -56,0"
               />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
+            </defs>
+            <text
+              className="font-sugo"
+              style={{
+                fontSize: "8px",
+                letterSpacing: "3.5px",
+                fill: secondaryColor,
+                fontWeight: "bold",
+              }}
+
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6 4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z"
-              />
-            </svg>
-          )}
+              <textPath href="#soundCirclePath" startOffset="0%" className="mix-blend-difference">
+                SOUND &nbsp; - SOUND &nbsp;- SOUND -&nbsp;
+              </textPath>
+            </text>
+          </svg>
+
+          {/* Center circle with ON/OFF */}
+          <div
+            className="relative z-10 w-[44px] h-[44px] rounded-full flex items-center justify-center shadow-lg"
+            style={{
+              backgroundColor: primaryColor,
+              boxShadow: `0 0 18px ${primaryColor}88`,
+            }}
+          >
+            <span
+              className="font-sugo text-white select-none"
+              style={{ fontSize: "10px", letterSpacing: "1px" }}
+            >
+              {sound ? "ON" : "OFF"}
+            </span>
+          </div>
         </button>
+
+        {/* Keyframe for spin animation injected via style tag */}
+        <style>{`
+          @keyframes mobileSoundSpin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+          }
+        `}</style>
       </div>
     </div>
   );

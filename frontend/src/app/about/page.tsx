@@ -84,6 +84,7 @@ const AboutPage = () => {
       opacity: 0,
       stagger: {
         each: 0.2,
+        from: "end"
       },
       scrollTrigger: {
         trigger: "#communityGroup",
@@ -125,11 +126,11 @@ const AboutPage = () => {
     <div id="about" className="px-6 sm:px-10 md:px-[120px] lg:px-[180px]">
       <div
         id="title"
-        className="flex sm:flex-row flex-col-reverse justify-between items-center h-[65vh] sm:h-[80vh] sm:ml-10 mb-[50px] mt-[22vh] sm:mt-[12vh]"
+        className="flex sm:flex-row flex-col-reverse justify-between items-center h-[64vh] sm:h-[80vh] sm:ml-10 mb-[50px] mt-[22vh] sm:mt-[12vh]"
       >
         <div className="text-center sm:text-left">
           <h1
-            className="text-[clamp(40px,5vw,80px)] font-coolvetica w-[30vw] sm:leading-[100px] tracking-widest"
+            className="text-[clamp(40px,5vw,80px)] font-coolvetica sm:w-[30vw] sm:leading-[100px] tracking-widest text-center sm:text-left w-full"
             style={{ color: primaryColor }}
           >
             Kuldeep Pandit
@@ -153,19 +154,19 @@ const AboutPage = () => {
             background:
               "radial-gradient(60.87% 40.94% at 54.79% 56.77%, rgba(255, 255, 255, 0.00) 0%, #F0EBE7 100%)",
           }}
-          className="absolute top-0 right-0 w-screen h-[95vh] hidden sm:block"
+          className="absolute sm:scale-100 top-0 right-0 w-screen h-[95vh]  block"
         ></div>
       </div>
       <div
         id="info"
         className="flex sm:flex-row flex-col justify-center items-center relative mb-[150px]"
       >
-        <div className="w-[50%] flex justify-end">
-          <div className="relative right-[90px] h-[80vh] w-fit">
+        <div className="w-full sm:w-[50%] flex justify-center sm:justify-end mb-8 sm:mb-0">
+          <div className="relative sm:right-[90px] w-[80%] max-w-[400px] sm:max-w-none sm:h-[80vh] sm:w-fit">
             <Image
               src="/images/aboutInfo.webp"
               alt="profile"
-              className="h-full w-auto"
+              className="w-full h-auto sm:h-full sm:w-auto object-contain"
               width={500}
               height={500}
             />
@@ -179,14 +180,14 @@ const AboutPage = () => {
           </div>
         </div>
 
-        <div className="w-[50%]">
+        <div className="sm:w-[50%]">
           <h1
             className="font-coolvetica text-xs sm:text-sm md:text-md tracking-[4px] text-left mb-8"
             style={{ color: primaryColor }}
           >
             INFO
           </h1>
-          <p className="font-coolvetica text-xs sm:text-sm md:text-lg text-left opacity-65">
+          <p className="font-coolvetica text-lg sm:text-sm md:text-lg text-left opacity-65">
             I’m an undergraduate student at the JSS Academy of Technical
             Education, Noida, pursuing CSE - Data Science, graduating in
             September 2027.
@@ -220,10 +221,10 @@ const AboutPage = () => {
 
       <div
         id="education"
-        className="mt-24 mb-32 flex justify-between items-center gap-10 relative"
+        className="mt-24 mb-32 flex sm:flex-row flex-col justify-between items-center gap-10 relative"
       >
         {/* Left: text */}
-        <div className="w-[50%]">
+        <div className="w-full sm:w-[50%]">
           <h2
             className="font-coolvetica text-xs sm:text-sm md:text-md tracking-[4px] mb-10"
             style={{ color: primaryColor }}
@@ -249,7 +250,7 @@ const AboutPage = () => {
         </div>
 
         {/* Right: image with radial overlay */}
-        <div className="w-[50%] flex justify-end">
+        <div className="w-full sm:w-[50%] flex justify-end">
           <div className="relative w-full max-w-[600px] h-[260px] sm:h-[320px] md:h-[360px] overflow-hidden">
             <Image
               src="/images/jss.webp"
@@ -285,7 +286,7 @@ const AboutPage = () => {
           {/* Top-left: text about public speaking */}
           <div>
             <p
-              className="font-coolvetica text-xs sm:text-sm md:text-lg leading-relaxed max-w-xl"
+              className="font-coolvetica text-lg sm:text-sm md:text-lg leading-relaxed max-w-xl"
               style={{ color: `#00000090` }}
             >
               I&apos;ve received multiple opportunities in{" "}
@@ -345,7 +346,7 @@ const AboutPage = () => {
           {/* Bottom-right: text about events & hackathons */}
           <div className="flex items-center">
             <p
-              className="font-coolvetica text-xs sm:text-sm md:text-lg leading-relaxed max-w-xl text-right"
+              className="font-coolvetica text-lg sm:text-sm md:text-lg leading-relaxed max-w-xl text-right"
               style={{ color: `#00000090` }}
             >
               I&apos;ve participated in and won multiple technical{" "}
@@ -368,15 +369,15 @@ const AboutPage = () => {
       {/* Motto & Hobbies section */}
       <div className="grid md:grid-cols-[1.2fr,1fr] gap-16 items-start">
         {/* Right: hobby image with overlay */}
-        <div id="hobbies" className="flex justify-between items-center">
-          <div>
+        <div id="hobbies" className="flex sm:flex-row flex-col justify-between items-center">
+          <div className="w-full">
             <h3
-              className="font-coolvetica text-xs sm:text-sm md:text-md tracking-[4px] mb-14"
+              className="font-coolvetica text-xs sm:text-sm md:text-md tracking-[4px] mb-6 sm:mb-14"
               style={{ color: primaryColor }}
             >
               THINGS I LOVE TO DO
             </h3>
-            <p className="font-coolvetica text-base sm:text-lg md:text-4xl   leading-relaxed max-w-xl">
+            <p className="font-coolvetica text-xl sm:text-lg md:text-4xl   leading-relaxed max-w-xl text-center sm:text-left mb-10 sm:mb-0">
               Travelling to new places
               <br />
               Playing Guitar
@@ -384,7 +385,7 @@ const AboutPage = () => {
               Working Out
             </p>
           </div>
-          <div className="relative w-full max-w-[460px] h-[280px] sm:h-[320px] overflow-hidden rounded-[32px]">
+          <div className="relative w-full max-w-[460px] h-[220px] sm:h-[320px] overflow-hidden rounded-[32px]">
             <Image
               src="/images/hobby.webp"
               alt="Hobbies collage"
@@ -411,7 +412,7 @@ const AboutPage = () => {
           >
             MY MOTTO
           </h3>
-          <p className="font-coolvetica text-lg sm:text-xl md:text-4xl leading-relaxed w-full text-center ">
+          <p className="font-coolvetica text-2xl sm:text-xl md:text-4xl leading-relaxed w-full text-center ">
             “I work until the work speaks for itself.”
           </p>
         </div>
