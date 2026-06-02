@@ -54,13 +54,13 @@ const Work = () => {
           >
             {/* Base text layer in secondary color */}
             <h2
-              className="text-[clamp(2.5rem,7vw,8rem)] font-coolvetica font-black tracking-[4px] leading-tight md:leading-10 relative z-10 cursor-pointer"
+              className="text-[clamp(2.5rem,7vw,8rem)] font-coolvetica font-black tracking-[4px] leading-tight md:leading-10 relative z-10 cursor-pointer "
               style={{ color: secondaryColor }}
             >
               {item.text}
             </h2>
             <p
-              className="z-30 font-coolvetica text-sm sm:text-base max-w-full md:max-w-[30vw] lg:text-[#1E1E1E] text-white"
+              className="z-30 font-coolvetica text-sm sm:text-base max-w-full md:max-w-[30vw] lg:text-[#1E1E1E] sm:text-[#F0EBE7] text-[#AF4319] opacity-70"
             >
               {item.brief}
             </p>

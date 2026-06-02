@@ -46,7 +46,9 @@ const Hackathons = () => {
     setTouchedIndex(index);
   };
 
-  const handleTouchEnd = (index: number) => {
+  const handleTouchEnd = (e: React.TouchEvent, index: number) => {
+    // Prevent default to stop synthesized click events from firing later
+    if (e.cancelable) e.preventDefault();
     setModalImg(workItems[index].img);
     setTouchedIndex(null);
   };
@@ -69,7 +71,7 @@ const Hackathons = () => {
             onMouseEnter={() => mouseEnter(index)}
             onMouseLeave={mouseLeave}
             onTouchStart={() => handleTouchStart(index)}
-            onTouchEnd={() => handleTouchEnd(index)}
+            onTouchEnd={(e) => handleTouchEnd(e, index)}
           >
             {/* Base text layer in secondary color */}
             <h2
@@ -133,7 +135,7 @@ const Hackathons = () => {
         >
           {/* Close button */}
           <button
-            className="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full text-white text-xl font-bold z-10"
+            className="absolute top-18 right-8 w-9 h-9 flex items-center justify-center rounded-full text-white text-xl font-bold z-10"
             style={{ backgroundColor: primaryColor, color: "#1e1e1e" }}
             onClick={(e) => { e.stopPropagation(); setModalImg(null); }}
             aria-label="Close"
@@ -151,7 +153,8 @@ const Hackathons = () => {
               alt="hackathon"
               width={700}
               height={500}
-              className="w-full max-h-[80vh] object-contain rounded-2xl"
+              priority
+              className="w-full max-h-[70vh] object-contain rounded-2xl"
               style={{ border: `3px solid ${primaryColor}` }}
             />
           </div>
