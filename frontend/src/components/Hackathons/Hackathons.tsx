@@ -9,6 +9,10 @@ const Hackathons = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [imgSrc, setImgSrc] = useState<string | null>("/images/veshack.jpg");
 
+  // Mobile-only states
+  const [touchedIndex, setTouchedIndex] = useState<number | null>(null);
+  const [modalImg, setModalImg] = useState<string | null>(null);
+
   const workItems = [
     {
       text: "VESHACK'24",
@@ -37,6 +41,16 @@ const Hackathons = () => {
     setImgSrc(null);
   }
 
+  // Mobile handlers
+  const handleTouchStart = (index: number) => {
+    setTouchedIndex(index);
+  };
+
+  const handleTouchEnd = (index: number) => {
+    setModalImg(workItems[index].img);
+    setTouchedIndex(null);
+  };
+
   return (
     <section className="pb-[40px] sm:pb-[80px] md:pb-[100px] relative">
       <h1
@@ -54,20 +68,20 @@ const Hackathons = () => {
             style={{ borderColor: `${secondaryColor}50` }}
             onMouseEnter={() => mouseEnter(index)}
             onMouseLeave={mouseLeave}
-            onTouchStart={()=>mouseEnter(index)}
-            onTouchEnd={mouseLeave}
+            onTouchStart={() => handleTouchStart(index)}
+            onTouchEnd={() => handleTouchEnd(index)}
           >
             {/* Base text layer in secondary color */}
             <h2
-              className="text-[1.4rem] sm:text-[clamp(1.8rem,5vw,5rem)] font-coolvetica font-black tracking-[4px] leading-tight md:leading-10 relative z-10 cursor-pointer"
-              style={{ color: secondaryColor }}
+              className="text-[1.7rem] sm:text-[clamp(1.8rem,5vw,5rem)] font-coolvetica font-black tracking-[4px] leading-tight md:leading-10 relative z-10 cursor-pointer w-full text-center sm:text-left transition-colors duration-150"
+              style={{ color: touchedIndex === index ? primaryColor : secondaryColor }}
             >
               {item.text}
             </h2>
 
             {/* Expanding overlay background */}
             <div
-              className="absolute top-1/2 left-0 w-full transition-all duration-300 ease-in-out z-20"
+              className="absolute top-1/2 left-0 w-full transition-all duration-300 ease-in-out z-20 hidden sm:block"
               style={{
                 backgroundColor: primaryColor,
                 transform: "translateY(-50%)",
@@ -109,8 +123,42 @@ const Hackathons = () => {
           height={500}
         />
       )}
+
+      {/* Mobile image modal (visible only on < sm screens) */}
+      {modalImg && (
+        <div
+          className="sm:hidden fixed inset-0 z-50 flex items-center justify-center"
+          style={{ backgroundColor: "rgba(0,0,0,0.85)" }}
+          onClick={() => setModalImg(null)}
+        >
+          {/* Close button */}
+          <button
+            className="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full text-white text-xl font-bold z-10"
+            style={{ backgroundColor: primaryColor, color: "#1e1e1e" }}
+            onClick={(e) => { e.stopPropagation(); setModalImg(null); }}
+            aria-label="Close"
+          >
+            ✕
+          </button>
+
+          {/* Image — stop propagation so tapping it doesn't close modal */}
+          <div
+            className="relative mx-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={modalImg}
+              alt="hackathon"
+              width={700}
+              height={500}
+              className="w-full max-h-[80vh] object-contain rounded-2xl"
+              style={{ border: `3px solid ${primaryColor}` }}
+            />
+          </div>
+        </div>
+      )}
       <p
-        className="text-[1.5rem] sm:text-[clamp(2rem,4vw,3rem)] px-[40px] sm:px-10 md:px-[120px] lg:px-[160px] xl:px-[200px] tracking-[8px] sm:tracking-[10px] md:tracking-[12px] font-baloo"
+        className="text-[1.5rem] sm:text-[clamp(2rem,4vw,3rem)] px-[40px] sm:px-10 md:px-[120px] lg:px-[160px] xl:px-[200px] tracking-[8px] sm:tracking-[10px] md:tracking-[12px] font-baloo text-center sm:text-left"
         style={{
           WebkitTextStroke: `1px ${secondaryColor}`,
           color: secondaryColor,
