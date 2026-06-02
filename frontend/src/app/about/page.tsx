@@ -202,7 +202,7 @@ const AboutPage = () => {
     <div id="about" className="px-6 sm:px-10 md:px-[120px] lg:px-[180px]">
       <div
         id="title"
-        className="flex sm:flex-row flex-col-reverse justify-between items-center h-[62vh] sm:h-[80vh] sm:ml-10 mb-[50px] mt-[22vh] sm:mt-[12vh]"
+        className="flex sm:flex-row flex-col-reverse justify-between items-center h-[60vh] sm:h-[80vh] sm:ml-10 mb-[50px] mt-[22vh] sm:mt-[12vh]"
       >
         <div className="text-center sm:text-left">
           <h1

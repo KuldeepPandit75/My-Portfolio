@@ -38,7 +38,7 @@ const Footer = memo(() => {
         <h3 className="font-coolvetica tracking-[4px] mb-8 md:mb-10 text-sm md:text-base">
           CONNECT
         </h3>
-        <div className="flex flex-col sm:flex-row justify-between gap-8 sm:gap-0 w-full lg:w-[clamp(200px,36vw,550px)]">
+        <div className="flex flex-col sm:flex-row justify-between gap-5 sm:gap-0 w-full lg:w-[clamp(200px,36vw,550px)]">
           <ul className="flex flex-col gap-5 md:gap-7">
             <li className="flex gap-7">
               <Image
