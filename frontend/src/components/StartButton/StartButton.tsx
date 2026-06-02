@@ -31,6 +31,47 @@ const StartButton = () => {
 
   const handleClick = () => {
     audioElement?.play();
+
+    // Preload all portfolio images so they're ready when sections come into view
+    const imagesToPreload = [
+      // Hero
+      "/images/bgirl.png",
+      "/images/boy.png",
+      "/images/boy2.png",
+      "/images/sgirl.png",
+      // About
+      "/images/aboutHead24.webp",
+      "/images/aboutInfo.webp",
+      "/images/jss.webp",
+      "/images/community1.webp",
+      "/images/community2.webp",
+      "/images/hobby.webp",
+      // Skills
+      "/images/langs.png",
+      "/images/libraries.png",
+      "/images/tools.png",
+      "/images/versionControl.png",
+      // Projects
+      "/images/vm.svg",
+      "/images/vv.svg",
+      "/images/birlai.svg",
+      "/images/chat.svg",
+      "/images/vt.svg",
+      // Experience
+      "/images/cleft.png",
+      "/images/cright.png",
+      // Hackathons
+      "/images/veshack.jpg",
+      "/images/convergex.jpg",
+      "/images/ignition.jpg",
+      // Footer
+      "/images/footer.png",
+    ];
+    imagesToPreload.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+
     // Animate button and container out
     const tl = gsap.timeline({
       onComplete: () => {

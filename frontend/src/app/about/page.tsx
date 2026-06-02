@@ -12,113 +12,189 @@ const AboutPage = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   useGSAP(() => {
-    gsap.to("#profileImg", {
-      y: "-150",
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#profileImg",
-        start: "top 25%",
-        end: "bottom top",
-        scrub: 1,
-      },
+    const mm = gsap.matchMedia();
+
+    // ── Desktop (sm and above: ≥640px) ──────────────────────────────────────
+    mm.add("(min-width: 640px)", () => {
+      gsap.to("#profileImg", {
+        y: "-150",
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#profileImg",
+          start: "top 25%",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+
+      gsap.from("#info > *", {
+        y: 100,
+        opacity: 0,
+        stagger: { each: 0.2, from: "end" },
+        scrollTrigger: {
+          trigger: "#info",
+          start: "top 120%",
+          end: "bottom bottom",
+          scrub: 1,
+        },
+      });
+
+      gsap.from("#education > *", {
+        y: 100,
+        opacity: 0,
+        stagger: { each: 0.2 },
+        scrollTrigger: {
+          trigger: "#education",
+          start: "top 120%",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+
+      gsap.from("#community", {
+        y: 100,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: "#community",
+          start: "top 120%",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+
+      gsap.from("#publicSpeaking>*", {
+        y: 100,
+        opacity: 0,
+        stagger: { each: 0.2, from: "end" },
+        scrollTrigger: {
+          trigger: "#publicSpeaking",
+          start: "top 120%",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+
+      gsap.from("#communityGroup>*", {
+        y: 100,
+        opacity: 0,
+        stagger: { each: 0.2, from: "end" },
+        scrollTrigger: {
+          trigger: "#communityGroup",
+          start: "top 120%",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+
+      gsap.from("#hobbies>*", {
+        y: 100,
+        opacity: 0,
+        stagger: { each: 0.2, from: "end" },
+        scrollTrigger: {
+          trigger: "#hobbies",
+          start: "top 100%",
+          end: "bottom 80%",
+          scrub: 1,
+        },
+      });
+
+      gsap.from("#motto", {
+        y: 100,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: "#motto",
+          start: "top 120%",
+          end: "bottom 80%",
+          scrub: 1,
+        },
+      });
     });
 
-    gsap.from("#info > *", {
-      y: 100,
-      opacity: 0,
-      stagger: {
-        each: 0.2,
-        from: "end",
-      },
-      scrollTrigger: {
-        trigger: "#info",
-        start: "top 120%",
-        end: "bottom bottom",
-        scrub: 1,
-      },
-    });
+    // ── Mobile (< 640px) ────────────────────────────────────────────────────
+    // Use "top 85%" so animations trigger as sections enter the viewport,
+    // not 120% below it (which leaves elements stuck off-screen on small displays).
+    mm.add("(max-width: 639px)", () => {
+      gsap.from("#info > *", {
+        y: 60,
+        opacity: 0,
+        stagger: { each: 0.2, from: "start" },
+        scrollTrigger: {
+          trigger: "#info",
+          start: "top 95%",
+          end: "bottom 60%",
+          scrub: 1,
+        },
+      });
 
-    gsap.from("#education > *", {
-      y: 100,
-      opacity: 0,
-      stagger: {
-        each: 0.2,
-      },
-      scrollTrigger: {
-        trigger: "#education",
-        start: "top 120%",
-        end: "bottom top",
-        scrub: 1,
-      },
-    });
+      gsap.from("#education > *", {
+        y: 60,
+        opacity: 0,
+        stagger: { each: 0.2 },
+        scrollTrigger: {
+          trigger: "#education",
+          start: "top 85%",
+          end: "bottom 60%",
+          scrub: 1,
+        },
+      });
 
-    gsap.from("#community", {
-      y: 100,
-      opacity: 0,
-      stagger: 0.2,
-      scrollTrigger: {
-        trigger: "#community",
-        start: "top 120%",
-        end: "bottom top",
-        scrub: 1,
-      },
-    });
+      gsap.from("#community", {
+        y: 60,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: "#community",
+          start: "top 85%",
+          end: "bottom 60%",
+          scrub: 1,
+        },
+      });
 
-    gsap.from("#publicSpeaking>*", {
-      y: 100,
-      opacity: 0,
-      stagger: {
-        each: 0.2,
-        from: "end",
-      },
-      scrollTrigger: {
-        trigger: "#publicSpeaking",
-        start: "top 120%",
-        end: "bottom top",
-        scrub: 1,
-      },
-    });
+      gsap.from("#publicSpeaking>*", {
+        y: 60,
+        opacity: 0,
+        stagger: { each: 0.2, from: "start" },
+        scrollTrigger: {
+          trigger: "#publicSpeaking",
+          start: "top 85%",
+          end: "bottom 60%",
+          scrub: 1,
+        },
+      });
 
-    gsap.from("#communityGroup>*", {
-      y: 100,
-      opacity: 0,
-      stagger: {
-        each: 0.2,
-        from: "end"
-      },
-      scrollTrigger: {
-        trigger: "#communityGroup",
-        start: "top 120%",
-        end: "bottom top",
-        scrub: 1,
-      },
-    });
+      gsap.from("#communityGroup>*", {
+        y: 60,
+        opacity: 0,
+        stagger: { each: 0.2, from: "start" },
+        scrollTrigger: {
+          trigger: "#communityGroup",
+          start: "top 85%",
+          end: "bottom 60%",
+          scrub: 1,
+        },
+      });
 
-    gsap.from("#hobbies>*", {
-      y: 100,
-      opacity: 0,
-      stagger: {
-        each: 0.2,
-        from: "end",
-      },
-      scrollTrigger: {
-        trigger: "#hobbies",
-        start: "top 100%",
-        end: "bottom 80%",
-        scrub: 1,
-      },
-    });
+      gsap.from("#hobbies>*", {
+        y: 60,
+        opacity: 0,
+        stagger: { each: 0.2, from: "start" },
+        scrollTrigger: {
+          trigger: "#hobbies",
+          start: "top 85%",
+          end: "bottom 65%",
+          scrub: 1,
+        },
+      });
 
-    gsap.from("#motto", {
-      y: 100,
-      opacity: 0,
-      stagger: 0.2,
-      scrollTrigger: {
-        trigger: "#motto",
-        start: "top 120%",
-        end: "bottom 80%",
-        scrub: 1,
-      },
+      gsap.from("#motto", {
+        y: 60,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: "#motto",
+          start: "top 95%",
+          end: "bottom 65%",
+          scrub: 1,
+        },
+      });
     });
   });
 
@@ -126,7 +202,7 @@ const AboutPage = () => {
     <div id="about" className="px-6 sm:px-10 md:px-[120px] lg:px-[180px]">
       <div
         id="title"
-        className="flex sm:flex-row flex-col-reverse justify-between items-center h-[64vh] sm:h-[80vh] sm:ml-10 mb-[50px] mt-[22vh] sm:mt-[12vh]"
+        className="flex sm:flex-row flex-col-reverse justify-between items-center h-[62vh] sm:h-[80vh] sm:ml-10 mb-[50px] mt-[22vh] sm:mt-[12vh]"
       >
         <div className="text-center sm:text-left">
           <h1
@@ -154,7 +230,7 @@ const AboutPage = () => {
             background:
               "radial-gradient(60.87% 40.94% at 54.79% 56.77%, rgba(255, 255, 255, 0.00) 0%, #F0EBE7 100%)",
           }}
-          className="absolute sm:scale-100 top-0 right-0 w-screen h-[95vh]  block"
+          className="absolute  top-0 right-0 w-screen h-[95vh] opacity-70"
         ></div>
       </div>
       <div
@@ -171,7 +247,7 @@ const AboutPage = () => {
               height={500}
             />
             <div
-              className="absolute inset-0 pointer-events-none hidden sm:block"
+              className="absolute inset-0 pointer-events-none opacity-70"
               style={{
                 background:
                   "radial-gradient(78.05% 80.37% at 54.53% 44.08%, rgba(240, 235, 231, 0.00) 0%, #F0EBE7 86.18%)",
@@ -369,7 +445,10 @@ const AboutPage = () => {
       {/* Motto & Hobbies section */}
       <div className="grid md:grid-cols-[1.2fr,1fr] gap-16 items-start">
         {/* Right: hobby image with overlay */}
-        <div id="hobbies" className="flex sm:flex-row flex-col justify-between items-center">
+        <div
+          id="hobbies"
+          className="flex sm:flex-row flex-col justify-between items-center"
+        >
           <div className="w-full">
             <h3
               className="font-coolvetica text-xs sm:text-sm md:text-md tracking-[4px] mb-6 sm:mb-14"
