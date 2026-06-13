@@ -6,6 +6,7 @@ import HUD from "../components/HUD/HUD";
 
 import LenisProvider from "../components/LenisProvider/LenisProvider";
 import Footer from "../components/Footer/Footer";
+import GoogleAnalytics from "../components/GoogleAnalytics/GoogleAnalytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -50,6 +51,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="overflow-x-hidden">
+      <GoogleAnalytics />
       <body>
         <div
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}

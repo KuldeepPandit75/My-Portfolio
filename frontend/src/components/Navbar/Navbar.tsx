@@ -202,10 +202,7 @@ const Navbar = () => {
 
       {/* Menu Items - With blend mode */}
       <nav className="fixed top-0 right-0 mt-[3vh] sm:mt-[4vh] lg:mt-[5vh] mx-4 sm:mx-8 md:mx-[60px] xl:mx-[80px] mix-blend-difference select-none z-100">
-        <ul
-          className="hidden sm:flex gap-[4vw] items-center"
-          id="nav"
-        >
+        <ul className="hidden sm:flex gap-[4vw] items-center" id="nav">
           <Link
             id="about-link"
             href="/about"
@@ -274,72 +271,70 @@ const Navbar = () => {
               ></div>
             </div>
           </button>
-
-          
         </div>
       </nav>
       {/* Dropdown menu */}
-          <div
-            className={`fixed top-14 right-4 z-100 mt-3 rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 ease-in-out origin-top-right ${
-              isMenuOpen
-                ? "opacity-100 scale-100 pointer-events-auto"
-                : "opacity-0 scale-95 pointer-events-none"
-            }`}
+      <div
+        className={`fixed top-14 right-4 z-100 mt-3 rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 ease-in-out origin-top-right ${
+          isMenuOpen
+            ? "opacity-100 scale-100 pointer-events-auto"
+            : "opacity-0 scale-95 pointer-events-none"
+        }`}
+        style={{
+          backgroundColor: primaryColor,
+          minWidth: "180px",
+        }}
+      >
+        <div
+          className={`flex flex-col transition-all duration-300 delay-75 ${
+            isMenuOpen
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-2"
+          }`}
+        >
+          {/* About */}
+          <Link
+            href="/about"
+            onClick={() => setIsMenuOpen(false)}
+            className="px-6 py-4 font-sugo tracking-[2px] text-sm uppercase transition-all duration-200 hover:opacity-70"
+            style={{ color: secondaryColor }}
+          >
+            About
+          </Link>
+
+          {/* Contact */}
+          <button
+            onClick={() => {
+              setIsMenuOpen(false);
+              const contactSection = document.getElementById("contact");
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            className="px-6 py-4 font-sugo tracking-[2px] text-sm uppercase text-left transition-all duration-200 hover:opacity-70 border-t"
             style={{
-              backgroundColor: primaryColor,
-              minWidth: "180px",
+              color: secondaryColor,
+              borderColor: `${secondaryColor}20`,
             }}
           >
-            <div
-              className={`flex flex-col transition-all duration-300 delay-75 ${
-                isMenuOpen
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 -translate-y-2"
-              }`}
-            >
-              {/* About */}
-              <Link
-                href="/about"
-                onClick={() => setIsMenuOpen(false)}
-                className="px-6 py-4 font-sugo tracking-[2px] text-sm uppercase transition-all duration-200 hover:opacity-70"
-                style={{ color: secondaryColor }}
-              >
-                About
-              </Link>
+            Contact
+          </button>
 
-              {/* Contact */}
-              <button
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  const contactSection = document.getElementById("contact");
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-                className="px-6 py-4 font-sugo tracking-[2px] text-sm uppercase text-left transition-all duration-200 hover:opacity-70 border-t"
-                style={{
-                  color: secondaryColor,
-                  borderColor: `${secondaryColor}20`,
-                }}
-              >
-                Contact
-              </button>
-
-              {/* Resume */}
-              <a
-                href="/resume.pdf"
-                download="resume.pdf"
-                onClick={() => setIsMenuOpen(false)}
-                className="mx-4 mb-4 mt-3 px-4 py-3 rounded-lg font-sugo tracking-[2px] text-sm uppercase text-center transition-all duration-200 hover:opacity-80"
-                style={{
-                  backgroundColor: tertialColor,
-                  color: secondaryColor,
-                }}
-              >
-                Resume
-              </a>
-            </div>
-          </div>
+          {/* Resume */}
+          <a
+            href="/resume.pdf"
+            download="resume.pdf"
+            onClick={() => setIsMenuOpen(false)}
+            className="mx-4 mb-4 mt-3 px-4 py-3 rounded-lg font-sugo tracking-[2px] text-sm uppercase text-center transition-all duration-200 hover:opacity-80"
+            style={{
+              backgroundColor: tertialColor,
+              color: secondaryColor,
+            }}
+          >
+            Resume
+          </a>
+        </div>
+      </div>
     </>
   );
 };
