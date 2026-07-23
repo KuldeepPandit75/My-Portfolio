@@ -83,6 +83,52 @@ const Projects = memo(() => {
             </div>
           </div>
         </div>
+        {/* BirlaAI */}
+        <div
+          className="lg:h-[65vh] rounded-2xl lg:rounded-4xl sticky top-[25vh] mt-[50px] flex flex-col justify-center items-center sm:items-start pt-[20px] pb-[40px]"
+          style={{ backgroundColor: secondaryColor }}
+        >
+          <div className="w-fit mx-[50px] gap-4 pt-[20px] pb-[10px] sm:py-[30px] flex items-center text-[clamp(1.5rem,2vw,2.2rem)]">
+            <Image
+              src="/icons/clientflow.png"
+              alt="vm"
+              className="h-[clamp(25px,4vw,40px)] w-[clamp(35px,4vw,60px)]"
+              width={60}
+              height={60}
+            />
+            <h2 className="font-baloo">ClientFlow</h2>
+          </div>
+          <div className="flex flex-col-reverse lg:flex-row justify-between mx-[50px] font-coolvetica items-center gap-[30px] sm:gap-[50px] h-[60%]">
+            <div className="flex flex-row lg:flex-col gap-[30px]">
+              <div className="flex flex-col gap-[10px] lg:mt-8">
+                <p className="tracking-[4px] text-[clamp(8px,1.5vw,18px)]">
+                  WHATSAPP AUTOMATION
+                </p>
+                <p className="text-[clamp(12px,2.5vw,36px)]">
+                  Supercharge Your Customer Support with AI
+                </p>
+              </div>
+              <div className="flex gap-[20px] items-center sm:mt-[20px]">
+                <a
+                  href="https://client-flow-sage.vercel.app/"
+                  target="_blank"
+                  className="px-[clamp(10px,1.4vw,20px)] py-[clamp(5px,1vw,10px)] rounded-full text-[clamp(8px,1.5vw,20px)] text-center"
+                  style={{ backgroundColor: primaryColor, color: "white" }}
+                >
+                  Visit Platform
+                </a>
+              </div>
+            </div>
+            <div className="-ml-10">
+              <Image
+                src="/images/clientflow.png"
+                alt="vm"
+                width={600}
+                height={600}
+              />
+            </div>
+          </div>
+        </div>
         {/* VedicVerse */}
         <div
           className="lg:h-[65vh] rounded-2xl lg:rounded-4xl sticky top-[25vh] mt-[50px] flex flex-col justify-center items-center sm:items-start pt-[20px] pb-[40px]"
@@ -126,52 +172,7 @@ const Projects = memo(() => {
             </div>
           </div>
         </div>
-        {/* BirlaAI */}
-        <div
-          className="lg:h-[65vh] rounded-2xl lg:rounded-4xl sticky top-[25vh] mt-[50px] flex flex-col justify-center items-center sm:items-start pt-[20px] pb-[40px]"
-          style={{ backgroundColor: secondaryColor }}
-        >
-          <div className="w-fit mx-[50px] gap-4 pt-[20px] pb-[10px] sm:py-[30px] flex items-center text-[clamp(1.5rem,2vw,2.2rem)]">
-            <Image
-              src="/icons/pracai.svg"
-              alt="vm"
-              className="h-[clamp(35px,4vw,60px)] w-[clamp(35px,4vw,60px)]"
-              width={60}
-              height={60}
-            />
-            <h2 className="font-baloo">BirlaAI</h2>
-          </div>
-          <div className="flex flex-col-reverse lg:flex-row justify-between mx-[50px] font-coolvetica items-center gap-[30px] sm:gap-[50px] h-[60%]">
-            <div className="flex flex-row lg:flex-col gap-[30px]">
-              <div className="flex flex-col gap-[10px] lg:mt-8">
-                <p className="tracking-[4px] text-[clamp(8px,1.5vw,18px)]">
-                  EDTECH PLATFORM
-                </p>
-                <p className="text-[clamp(12px,2.5vw,36px)]">
-                  Meta Space for Learning AI
-                </p>
-              </div>
-              <div className="flex gap-[20px] items-center sm:mt-[20px]">
-                <a
-                  href="https://birlaai.in/"
-                  target="_blank"
-                  className="px-[clamp(10px,1.4vw,20px)] py-[clamp(5px,1vw,10px)] rounded-full text-[clamp(8px,1.5vw,20px)] text-center"
-                  style={{ backgroundColor: primaryColor, color: "white" }}
-                >
-                  Visit Platform
-                </a>
-              </div>
-            </div>
-            <div className="-ml-10">
-              <Image
-                src="/images/birlai.svg"
-                alt="vm"
-                width={600}
-                height={600}
-              />
-            </div>
-          </div>
-        </div>
+        
         {/* Chat Analyzer */}
         <div
           className="lg:h-[65vh] rounded-2xl lg:rounded-4xl sticky top-[25vh] mt-[50px] flex flex-col justify-center items-center sm:items-start pt-[20px] pb-[40px]"

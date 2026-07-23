@@ -242,7 +242,7 @@ const Experience = memo(() => {
                     WebkitTextStroke: `0.7px ${primaryColor}`,
                   }}
                 >
-                  Web Developer
+                  President
                 </h2>
                 <h3
                   className="font-coolcond text-lg sm:text-xl md:text-2xl"
@@ -251,8 +251,7 @@ const Experience = memo(() => {
                   April 2024 - Present
                 </h3>
                 <p className="mt-4 md:mt-5 font-coolvetica text-sm sm:text-base">
-                  Developed the product frontend and handled full backend
-                  integration.
+                  Lead one of the institute’s largest technical communities, driving technical initiatives and student engagement.
                 </p>
               </div>
               <button
