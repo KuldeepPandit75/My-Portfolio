@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
+import Link from "next/link";
 
 const Projects = memo(() => {
   const { primaryColor, secondaryColor } = useThemeStore();
@@ -83,7 +84,7 @@ const Projects = memo(() => {
             </div>
           </div>
         </div>
-        {/* BirlaAI */}
+        {/* ClientFlow */}
         <div
           className="lg:h-[65vh] rounded-2xl lg:rounded-4xl sticky top-[25vh] mt-[50px] flex flex-col justify-center items-center sm:items-start pt-[20px] pb-[40px]"
           style={{ backgroundColor: secondaryColor }}
@@ -129,31 +130,35 @@ const Projects = memo(() => {
             </div>
           </div>
         </div>
-        {/* VedicVerse */}
+        {/* RepLay */}
         <div
           className="lg:h-[65vh] rounded-2xl lg:rounded-4xl sticky top-[25vh] mt-[50px] flex flex-col justify-center items-center sm:items-start pt-[20px] pb-[40px]"
           style={{ backgroundColor: secondaryColor }}
         >
           <div className="w-fit mx-[50px] py-[30px] flex items-center gap-6">
-            <Image
-              src="/icons/om.svg"
-              alt="vm"
-              className="h-[clamp(40px,3.4vw,50px)] w-[clamp(40px,3.4vw,50px)]"
-              width={50}
-              height={50}
-            />
-            <h2 className="font-samarkan tracking-normal text-[clamp(1.6rem,2.4vw,2.2rem)]">
-              VedicVerse
-            </h2>
+            
+            {/* Logo */}
+        <Link href="/" className="flex items-center">
+          <span
+            className="self-center text-3xl font-black whitespace-nowrap select-none"
+            style={{
+              fontFamily: "Futurism",
+              color: primaryColor,
+              letterSpacing: "-0.1em",
+            }}
+          >
+            R E P L A Y
+          </span>
+        </Link>
           </div>
           <div className="flex flex-col-reverse lg:flex-row justify-between mx-[50px] font-coolvetica items-center gap-[30px] sm:gap-[50px] h-[70%]">
             <div className="flex flex-row lg:flex-col gap-[30px]">
               <div className="flex flex-col gap-[10px] lg:mt-8">
                 <p className="tracking-[4px] text-[clamp(8px,1.5vw,18px)] leading-tight">
-                  VEDIC KNOWLEDGE PLATFORM
+                  Autonomous CI/CD Platform
                 </p>
                 <p className="text-[clamp(12px,2.5vw,36px)] leading-tight">
-                  Play, Explore, and Learn the Vedic World.
+                  Your Smart Platform to Heal CI/CD Pipelines.
                 </p>
               </div>
               <div className="flex gap-[20px] items-center sm:mt-[20px]">
@@ -168,34 +173,34 @@ const Projects = memo(() => {
               </div>
             </div>
             <div className="-ml-12">
-              <Image src="/images/vv.svg" alt="vv" width={800} height={800} />
+              <Image src="/images/replay.png" alt="vv" width={800} height={800} />
             </div>
           </div>
         </div>
         
-        {/* Chat Analyzer */}
+        {/* VaultStream */}
         <div
           className="lg:h-[65vh] rounded-2xl lg:rounded-4xl sticky top-[25vh] mt-[50px] flex flex-col justify-center items-center sm:items-start pt-[20px] pb-[40px]"
           style={{ backgroundColor: secondaryColor }}
         >
           <div className="w-fit mx-[50px] pt-[20px] pb-[30px] flex font-coolvetica items-center gap-5 text-[clamp(1.4rem,2vw,2.2rem)]">
             <Image
-              src="/icons/chat.svg"
+              src="/icons/vs.png"
               alt="vm"
               className="h-[clamp(30px,3.2vw,40px)] w-[clamp(30px,3.2vw,40px)]"
               width={45}
               height={45}
             />
-            <h2>Chat Analyzer</h2>
+            <h2>VaultStream</h2>
           </div>
           <div className="flex flex-col-reverse lg:flex-row justify-between mx-[50px] font-coolvetica items-center gap-[10px] sm:gap-[50px] h-[60%]">
             <div className="flex flex-row lg:flex-col gap-[30px]">
               <div className="flex flex-col gap-[10px] lg:mt-8">
                 <p className="tracking-[4px] text-[clamp(8px,1.5vw,18px)]">
-                  CHAT ANALYZING PLATFORM
+                  OTT Platform
                 </p>
                 <p className="text-[clamp(12px,2.5vw,36px)]">
-                  Read the Real Story Behind Chats.
+                  Watch Movies and get similar Recommendations.
                 </p>
               </div>
               <div className="flex gap-[20px] items-center sm:mt-[20px]">
@@ -209,8 +214,8 @@ const Projects = memo(() => {
                 </a>
               </div>
             </div>
-            <div className="lg:mt-[50px] -mr-3">
-              <Image src="/images/chat.svg" alt="vm" width={500} height={500} />
+            <div className="lg:mt-[50px] -ml-12">
+              <Image src="/images/vs.png" alt="vm" width={800} height={800} />
             </div>
           </div>
         </div>
