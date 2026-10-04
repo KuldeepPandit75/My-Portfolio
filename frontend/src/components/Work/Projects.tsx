@@ -163,7 +163,7 @@ const Projects = memo(() => {
               </div>
               <div className="flex gap-[20px] items-center sm:mt-[20px]">
                 <a
-                  href="https://vedic-verse.vercel.app/"
+                  href="https://replay-eosin.vercel.app"
                   target="_blank"
                   className="px-[clamp(10px,1.5vw,20px)] py-[clamp(5px,1vw,10px)] rounded-full text-center text-[clamp(8px,1.5vw,20px)]"
                   style={{ backgroundColor: primaryColor, color: "white" }}
@@ -205,7 +205,7 @@ const Projects = memo(() => {
               </div>
               <div className="flex gap-[20px] items-center sm:mt-[20px]">
                 <a
-                  href="https://whatsapp-chat-analyzer-tan.vercel.app/"
+                  href="https://vault-stream-gilt.vercel.app"
                   target="_blank"
                   className="px-[clamp(10px,1.4vw,20px)] py-[clamp(5px,1vw,10px)] rounded-full text-[clamp(8px,1.5vw,20px)] text-center"
                   style={{ backgroundColor: primaryColor, color: "white" }}
