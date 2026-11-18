@@ -1,59 +1,24 @@
 "use client";
 
-import { lazy, Suspense, useEffect } from "react";
+import { useEffect } from "react";
 import { useThemeStore } from "../Zustand_Store/ThemeStore";
 import { useStore } from "../Zustand_Store/Store";
 import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
 import StartButton from "../components/StartButton/StartButton";
 import { useRouter } from "next/navigation";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const LazyHero = lazy(() =>
-  import("@/src/components/Hero/Hero").then((module) => ({
-    default: module.default,
-  })),
-);
+import Hero from "@/src/components/Hero/Hero";
+import About from "@/src/components/About/About";
+import Work from "@/src/components/Work/Work";
+import Skills from "@/src/components/Work/Skills";
+import Projects from "@/src/components/Work/Projects";
+import Experience from "@/src/components/Work/Experience";
+import Hackathons from "@/src/components/Hackathons/Hackathons";
+import Motto from "@/src/components/Motto/Motto";
 
-const LazyAbout = lazy(() =>
-  import("@/src/components/About/About").then((module) => ({
-    default: module.default,
-  })),
-);
-
-const LazyWork = lazy(() =>
-  import("@/src/components/Work/Work").then((module) => ({
-    default: module.default,
-  })),
-);
-
-const LazySkills = lazy(() =>
-  import("@/src/components/Work/Skills").then((module) => ({
-    default: module.default,
-  })),
-);
-
-const LazyProjects = lazy(() =>
-  import("@/src/components/Work/Projects").then((module) => ({
-    default: module.default,
-  })),
-);
-
-const LazyExperience = lazy(() =>
-  import("@/src/components/Work/Experience").then((module) => ({
-    default: module.default,
-  })),
-);
-
-const LazyHackathons = lazy(() =>
-  import("@/src/components/Hackathons/Hackathons").then((module) => ({
-    default: module.default,
-  })),
-);
-
-const LazyMotto = lazy(() =>
-  import("@/src/components/Motto/Motto").then((module) => ({
-    default: module.default,
-  })),
-);
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const { tertialColor } = useThemeStore();
@@ -62,10 +27,28 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.history.scrollRestoration = "manual";
+      window.scrollTo(0, 0);
+    }
     router.prefetch("/about");
-  }, []);
+  }, [router]);
 
+  useEffect(() => {
+    if (animationStarted) {
+      const timer = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 300);
 
+      if (typeof document !== "undefined" && document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => {
+          ScrollTrigger.refresh();
+        });
+      }
+
+      return () => clearTimeout(timer);
+    }
+  }, [animationStarted]);
 
   // Show LoadingScreen first
   if (!loadingComplete) {
@@ -81,30 +64,16 @@ export default function Home() {
   return (
     <>
       <div className="absolute top-0 w-full -z-1">
-        <LazyHero />
+        <Hero />
       </div>
       <div className="mt-[100vh]" style={{ backgroundColor: tertialColor }}>
-        <Suspense fallback={<div />}>
-          <LazyAbout />
-        </Suspense>
-        <Suspense fallback={<div />}>
-          <LazyWork />
-        </Suspense>
-        <Suspense fallback={<div />}>
-          <LazySkills />
-        </Suspense>
-        <Suspense fallback={<div />}>
-          <LazyProjects />
-        </Suspense>
-        <Suspense fallback={<div />}>
-          <LazyExperience />
-        </Suspense>
-        <Suspense fallback={<div />}>
-          <LazyHackathons />
-        </Suspense>
-        <Suspense fallback={<div />}>
-          <LazyMotto />
-        </Suspense>
+        <About />
+        <Work />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Hackathons />
+        <Motto />
       </div>
     </>
   );

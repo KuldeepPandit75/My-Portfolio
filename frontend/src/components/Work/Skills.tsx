@@ -3,7 +3,7 @@
 import { useThemeStore } from "@/src/Zustand_Store/ThemeStore";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -12,19 +12,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Skills data for each category
 const skillsData = {
-  languages: ["JavaScript", "Python", "Java", "C++", "SQL"],
+  languages: ["Python", "TypeScript", "JavaScript", "SQL", "C++", "Java"],
   libraries: [
-    "React",
     "Next.js",
+    "React",
+    "FastAPI",
     "Node.js",
-    "Express",
+    "LangGraph",
     "TailwindCSS",
     "Socket.io",
     "GSAP",
-    "Phaser.js",
   ],
-  tools: ["Docker", "Figma", "Postman", "Nginx", "MongoDB", "Redis", "Mermaid"],
-  versionControl: ["Git", "GitLab", "Vercel", "OnRender"],
+  tools: ["Docker", "AWS", "PostgreSQL", "MongoDB", "Redis", "Postman"],
+  versionControl: ["Git", "GitHub", "Vercel", "Render"],
 };
 
 const Skills = () => {
@@ -32,25 +32,46 @@ const Skills = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    const getScrollAmount = () => {
-      if (!containerRef.current) return 0;
-      return Math.max(0, containerRef.current.scrollWidth - window.innerWidth);
-    };
+  useGSAP(
+    () => {
+      const getScrollAmount = () => {
+        if (!containerRef.current) return 0;
+        return Math.max(0, containerRef.current.scrollWidth - window.innerWidth);
+      };
 
-    gsap.to(containerRef.current, {
-      x: () => -getScrollAmount(),
-      ease: "none",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top top",
-        end: () => `+=${getScrollAmount() || window.innerHeight * 0.5}`,
-        pin: true,
-        scrub: 1,
-        invalidateOnRefresh: true,
-      },
-    });
-  });
+      gsap.to(containerRef.current, {
+        x: () => -getScrollAmount(),
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: () => `+=${getScrollAmount() || window.innerHeight * 0.5}`,
+          pin: true,
+          scrub: 1,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
+    },
+    { scope: sectionRef }
+  );
+
+  useEffect(() => {
+    if (typeof document !== "undefined" && document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        ScrollTrigger.refresh();
+      });
+    }
+
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 400);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleCardClick = (cardName: string) => {
     setActiveCard(activeCard === cardName ? null : cardName);
@@ -88,6 +109,7 @@ const Skills = () => {
                   alt="langs"
                   width={500}
                   height={500}
+                  onLoad={() => ScrollTrigger.refresh()}
                   className={`h-screen w-full object-cover object-center transition-all duration-600 ease-in-out relative ${
                     activeCard === "languages"
                       ? "grayscale-0 top-[50px]"
@@ -137,6 +159,7 @@ const Skills = () => {
                   alt="libraries"
                   width={500}
                   height={500}
+                  onLoad={() => ScrollTrigger.refresh()}
                   className={`h-screen w-full object-cover object-center transition-all duration-600 ease-in-out relative ${
                     activeCard === "libraries"
                       ? "grayscale-0 top-[50px]"
@@ -186,6 +209,7 @@ const Skills = () => {
                   alt="tools"
                   width={500}
                   height={500}
+                  onLoad={() => ScrollTrigger.refresh()}
                   className={`h-screen w-full object-cover object-center transition-all duration-600 ease-in-out relative ${
                     activeCard === "tools"
                       ? "grayscale-0 top-[50px]"
@@ -240,6 +264,7 @@ const Skills = () => {
                   alt="version control"
                   width={500}
                   height={500}
+                  onLoad={() => ScrollTrigger.refresh()}
                   className={`h-screen w-full object-cover object-center transition-all duration-600 ease-in-out relative ${
                     activeCard === "versionControl"
                       ? "grayscale-0 top-[50px]"
